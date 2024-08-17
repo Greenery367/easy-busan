@@ -36,14 +36,24 @@ create table question (
     foreign key(section_id) references section (section_id)
 );
 
-create table answer (
+create table answer(
 	answer_id int auto_increment primary key,
-    user_id int,
     question_id int,
-    answer_text text not null,
+    section_id int,
+    answer_text varchar(255),
+    score int,
+    created_at timestamp not null default current_timestamp,
+    foreign key(question_id) references question (question_id),
+    foreign key(section_id) references section (section_id)
+);
+
+create table user_answer (
+	user_answer_id int auto_increment primary key,
+    user_id int,
+    answer_id int,
     created_at timestamp not null default current_timestamp,
     foreign key(user_id) references users (user_id),
-    foreign key(question_id) references question (question_id)
+    foreign key(answer_id) references answer (answer_id)
 );
 
 create table user_kind (
