@@ -7,4 +7,19 @@
 		resultType="com.easybusan.repository.model.Kind">
 		select k.* from kind k join user_kind uk on k.kind_id = uk.kind_id where uk.user_id = #{userId}
 	</select>
+	<select
+		id="readSectionsByUserId"
+		resultType="com.easybusan.repository.model.Section">
+		select s.section_id, s.section_name 
+		from section s
+		join 
+		(select a.section_id, sum(a.score) as sum 
+		from user_answer ua 
+		join answer a on ua.answer_id = a.answer_id 
+		where ua.user_id = #{userId} 
+		group by a.section_id 
+		order by sum desc 
+		limit 3 ) as top on s.section_id = top.section_id
+	</select>
+	
 </mapper>

@@ -1,10 +1,13 @@
 package com.easybusan.controller;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.easybusan.repository.model.Kind;
+import com.easybusan.repository.model.Section;
 import com.easybusan.service.ResultService;
 
 import jakarta.servlet.http.HttpSession;
@@ -23,7 +26,9 @@ public class ResultController {
 		// int userId = (int) session.getAttribute("principal");
 		int userId = 1;
 		Kind kind = resultService.readKindByUserId(userId);
+		List<Section> sectionList = resultService.readSectionsByUserId(userId);
 		model.addAttribute("kind", kind);
+		model.addAttribute("sectionList", sectionList);
 		return "result";
 	}
 
