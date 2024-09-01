@@ -11,7 +11,7 @@ spring:
       prefix: /WEB-INF/view/ #JSP파일이 위치한 디렉토리 접두사를 설정합니다.
       suffix: .jsp #뷰 이름에 자동으로 추가될 파일 확장자를 설정합니다.
   datasource:
-    url: jdbc:h2:mem:bankdb;MODE=MySQL  #데이터 베이스 연결을 위한 URL을 설정 합니다.
+    url: jdbc:h2:mem:easy-busan;MODE=MySQL  #데이터 베이스 연결을 위한 URL을 설정 합니다.
     driver-class-name: org.h2.Driver #드라이버 클래스를 설정 합니다.
     username: sa #사용자 ID를 지정
     password: '' #DB 비밀번호 여기서는 빈 문자열로 설정
@@ -19,8 +19,8 @@ spring:
     init:
       schema-locations:
       - classpath:db/table.sql
-#      data-locations:
-#      - classpath:db/data.sql
+      data-locations:
+      - classpath:db/data.sql
   h2:
     console:
       enabled: true #H2 데이터 베이스 콘솔을 활성화 합니다.   

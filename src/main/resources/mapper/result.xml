@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.easybusan.repository.interfaces.ResultRepository">
+	<select
+		id="readKindByUserId"
+		resultType="com.easybusan.repository.model.Kind">
+		select k.* from kind k join user_kind uk on k.kind_id = uk.kind_id where uk.user_id = #{userId}
+	</select>
+</mapper>
