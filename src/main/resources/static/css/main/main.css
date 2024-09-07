@@ -1,0 +1,133 @@
+/* 기본 설정 */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    margin: 30px;
+    padding: 30px;
+    text-align: center;
+    background-color: #f3f3f3;
+}
+
+.intro {
+    background-color: #e0e0e0;
+    padding: 50px;
+    margin: 30px auto;
+    width: 60%;
+}
+
+.intro h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.intro p {
+    font-size: 20px;
+}
+
+.container1{
+	padding: 50px;
+	margin: 0px auto;
+	width: 60%;
+	height: 40%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	background-color: #e0e0e0;
+}
+
+.cont1-left{
+	background-color: rgb(0, 194, 255);
+	width:40%;
+	height:90%;
+	float: left;
+}
+
+.cont1-right{
+	background-color: rgb(0, 128, 255);
+	width:40%;
+	height:90%;
+	float: right;
+}
+
+.container2{
+	padding: 50px;
+	margin: 0px auto;
+	width: 60%;
+	height: 40%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	background-color: #e0e0e0;
+}
+
+.cont2-left{
+	background-color: rgb(0, 194, 255);
+	width:40%;
+	height:90%;
+	float: left;
+}
+
+.cont2-right{
+	background-color: rgb(0, 128, 255);
+	width:40%;
+	height:90%;
+	float: right;
+}
+
+.container3{
+	padding: 50px;
+	margin: 0px auto;
+	width: 60%;
+	height: 40%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	background-color: #e0e0e0;
+}
+
+.cont3-left{
+	background-color: rgb(0, 194, 255);
+	width:40%;
+	height:90%;
+	float: left;
+}
+
+.cont3-right{
+	background-color: rgb(0, 128, 255);
+	width:40%;
+	height:90%;
+	float: right;
+}
+
+.fixed-buttons {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+}
+
+.button {
+    width: 90px;
+    height: 90px;
+    background-color: rgb(0, 194, 255);
+    border-radius: 50%;
+    margin-bottom: 10px;
+	justify-content: center; /* 가로 중앙 정렬 */
+	align-items: center; /* 세로 중앙 정렬 */
+	display: flex;
+	font-size: 30px;
+}
+.button img{
+	width:50px;
+	height:50px;
+}
