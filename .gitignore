@@ -1,6 +1,8 @@
 # Created by https://www.toptal.com/developers/gitignore/api/windows,macos,java,eclipse,visualstudiocode,intellij
 # Edit at https://www.toptal.com/developers/gitignore?templates=windows,macos,java,eclipse,visualstudiocode,intellij
 
+src/main/java/com/easybusan/utils/APIKey.java
+
 ### Eclipse ###
 .metadata
 bin/
