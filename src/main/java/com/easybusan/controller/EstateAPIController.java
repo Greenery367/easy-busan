@@ -1,5 +1,6 @@
 package com.easybusan.controller;
 
+import com.easybusan.dto.EstateAPIDTO;
 import com.easybusan.utils.APIDefine;
 import com.easybusan.utils.APIUrl;
 import com.easybusan.utils.APIkey;
@@ -21,6 +22,7 @@ public class EstateAPIController {
         RestTemplate rt1 = new RestTemplate();
         String baseURL = null;
         StringBuilder sb = new StringBuilder();
+        int count = 0;
         for (int i = 0; i < APIUrl.REAL_ESTATE_LIST.length; i++) {
             baseURL = APIUrl.REAL_ESTATE_LIST[i];
             for (int k = 0; k < APIDefine.LAWD_CD_LIST.length; k++) {
@@ -41,26 +43,16 @@ public class EstateAPIController {
                                 .queryParam("numOfRows", numOfRows)  // 페이지 당 데이터 수
                                 .build(false)  // 인코딩하지 않음
                                 .toUriString();
-                        ResponseEntity<Map> response = rt1.getForEntity(uri, Map.class);
-                        Map<String, Object> map = response.getBody();
-                        Map<String, Object> responseMap = (Map<String, Object>) map.get("response");
-                        Map<String, Object> body = (Map<String, Object>) responseMap.get("body");
-                        Map<String, Object> items = (Map<String, Object>) body.get("items");
-                        totalCount = Integer.parseInt(body.get("totalCount").toString());
+                        ResponseEntity<EstateAPIDTO> response = rt1.getForEntity(uri, EstateAPIDTO.class);
+                        EstateAPIDTO dto = response.getBody();
+                        totalCount = dto.getBody().getTotalCount();
                         totalPages = (int) Math.ceil((double) totalCount / numOfRows);
                         currentPage++;
-                        Object itemObject = items.get("item");
-                        if (itemObject instanceof List) {
-                            // item이 여러 개일 때 (리스트일 경우)
-                            List<Map<String, Object>> itemList = (List<Map<String, Object>>) itemObject;
-                            for (Map<String, Object> item : itemList) {
-                                sb.append(item.get("excluUseAr")).append(", ").append(item.get("dealAmount")).append("\n");
-                            }
-                        } else if (itemObject instanceof Map) {
-                            // item이 하나일 때 (객체일 경우)
-                            Map<String, Object> item = (Map<String, Object>) itemObject;
-                            sb.append(item.get("excluUseAr")).append(", ").append(item.get("dealAmount")).append("\n");
+                        for (EstateAPIDTO.Item item : dto.getBody().getItems()) {
+                            sb.append(item.getExcluUseAr()).append(", ").append(item.getDealAmount()).append("\n");
                         }
+                        System.out.println("URL : " + baseURL);
+                        System.out.println("지역 코드 : " + APIDefine.LAWD_CD_LIST[k] + "년도 : " + j + " 횟수 : " + ++count);
                     } while (currentPage <= totalPages);
                 }
             }
