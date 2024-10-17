@@ -2,7 +2,8 @@
 ### Springboot와 공공 API를 사용한 부산 이주 컨설팅 사이트
 &nbsp; 
 &nbsp;
-![f545833c3a14a495](https://github.com/user-attachments/assets/f4064374-bc65-4b24-95ca-559dc5844e0c)
+![f545833c3a14a495](https://github.com/user-attachments/assets/c3aa5a66-a07f-4c41-a050-742b5a895698)
+
 
 * 유튜브 시연 영상 : 
 * 노션 : 
