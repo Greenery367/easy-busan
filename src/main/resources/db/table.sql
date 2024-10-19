@@ -29,7 +29,6 @@ create table question (
 	question_id int auto_increment primary key,
     question_text text not null,
     parent_id int,
-    section_id int,
     tip text,
     created_at timestamp not null default current_timestamp,
     foreign key(parent_id) references question (question_id),
