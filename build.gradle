@@ -29,6 +29,10 @@ dependencies {
 	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
 	// implementation 'javax.servlet:jstl' spring 3.x.x 버전에서 사용 안됨
 	implementation group: 'org.glassfish.web', name: 'jakarta.servlet.jsp.jstl', version: '3.0.0'
+
+	// xml 바인딩 api
+	implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.15.2'
+
 	// TODO - tools xml 파일 error check 
 	providedCompile 'javax.servlet:javax.servlet-api:3.1.0'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
