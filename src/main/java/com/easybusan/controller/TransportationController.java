@@ -26,7 +26,7 @@ public class TransportationController {
         headers.add("Content-Type", "application/json");
 
         String urlStr = UriComponentsBuilder.fromHttpUrl("http://apis.data.go.kr/6260000/BusanBIMS/busStopList")
-                .queryParam("serviceKey", APIkey.DATA_PORTAL_KKH)
+                .queryParam("serviceKey", APIkey.DATA_PORTAL_ESH)
                 .queryParam("pageNo", "1")      // 페이지 번호
                 .queryParam("numOfRows", "1000")  // 결과 수
                 .build(false)
