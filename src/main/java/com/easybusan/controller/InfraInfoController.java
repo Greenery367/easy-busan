@@ -81,9 +81,11 @@ public class InfraInfoController {
 
 
 
+    // 인프라 검색
     @GetMapping("/api/sggtoInfra")
-    public ResponseEntity<String> getSggToBrank(
-            @RequestParam(name = "theme_cd") String themeCd) {
+    public ResponseEntity<String> getSggToBrank(@RequestParam(name = "theme_cd") String themeCd) {
+
+        
 
         String apiUrl = "https://sgisapi.kostat.go.kr/OpenAPI3/startupbiz/sggtobrank.json"
                 + "?accessToken=" + accessToken
