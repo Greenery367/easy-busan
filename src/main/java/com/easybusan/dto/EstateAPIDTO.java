@@ -36,26 +36,11 @@ public class EstateAPIDTO {
 
     @Data
     public static class Item {
-        private String aptDong;
-        private String aptNm;
-        private int buildYear;
-        private String buyerGbn;
-        private String cdealDay;
-        private String cdealType;
         private String dealAmount;
-        private int dealDay;
-        private int dealMonth;
-        private int dealYear;
-        private String dealingGbn;
-        private String estateAgentSggNm;
         private double excluUseAr;
-        private int floor;
-        private String jibun;
-        private String landLeaseholdGbn;
-        private String rgstDate;
-        private String sggCd;
-        private String slerGbn;
-        private String umdNm;
+        private String deposit;
+        private double monthlyRent;
+        private double totalFloorAr;
     }
 }
 
