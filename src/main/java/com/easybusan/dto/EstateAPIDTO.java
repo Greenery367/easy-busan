@@ -39,7 +39,8 @@ public class EstateAPIDTO {
         private String dealAmount;
         private double excluUseAr;
         private String deposit;
-        private String montlyRent;
+        private double monthlyRent;
+        private double totalFloorAr;
     }
 }
 
