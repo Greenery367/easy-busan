@@ -25,6 +25,12 @@ repositories {
 }
 
 dependencies {
+	// wgs84(위도, 경도) 변환
+	implementation 'org.locationtech.proj4j:proj4j:1.2.2'
+	// xml 파싱 
+	implementation 'javax.xml.bind:jaxb-api:2.3.1'
+	implementation 'org.glassfish.jaxb:jaxb-runtime:2.3.1'
+	implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.15.2'
 	// 의존성 추가 
 	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
 	// implementation 'javax.servlet:jstl' spring 3.x.x 버전에서 사용 안됨
