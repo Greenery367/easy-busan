@@ -64,3 +64,13 @@ create table user_kind (
     foreign key(user_id) references users (user_id),
     foreign key(kind_id) references kind (kind_id)
 );
+
+create table kind_rank (
+    kind_score_id int auto_increment primary key,
+    kind_id int,
+    section_id int,
+    rank int,
+    created_at timestamp not null default current_timestamp,
+    foreign key(kind_id) references kind (kind_id),
+    foreign key(section_id) references section (section_id)
+);
