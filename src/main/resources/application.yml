@@ -19,8 +19,8 @@ spring:
     init:
       schema-locations:
       - classpath:db/table.sql
-#      data-locations:
-#      - classpath:db/data.sql
+      data-locations:
+      - classpath:db/data/*
   h2:
     console:
       enabled: true #H2 데이터 베이스 콘솔을 활성화 합니다.   

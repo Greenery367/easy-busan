@@ -4,6 +4,7 @@ import com.easybusan.dto.EstateAPIDTO;
 import com.easybusan.service.EstateRankService;
 import com.easybusan.utils.APIDefine;
 import com.easybusan.utils.APIkey;
+import com.easybusan.utils.CreateInsertUtil;
 import com.easybusan.utils.EstateAPIUrl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.aop.scope.ScopedProxyUtils;
@@ -43,12 +44,12 @@ public class EstateAPIController {
             double count2 = 0;
             for (int j = 202405; j <= 202407; j++) {
                 int currentPage = 1;
-                int numOfRows = 10;
+                int numOfRows = 1000;
                 int totalCount = 0;
                 int totalPages = 0;
                 do {
                     String uri = UriComponentsBuilder.fromHttpUrl(baseURL)
-                            .queryParam("serviceKey", APIkey.DATA_PORTAL_ESH)
+                            .queryParam("serviceKey", APIkey.DATA_PORTAL_KKH)
                             .queryParam("LAWD_CD", APIDefine.LAWD_CD_LIST[k])
                             .queryParam("DEAL_YMD", j)
                             .queryParam("pageNo", currentPage)  // 현재 페이지 설정
@@ -115,7 +116,7 @@ public class EstateAPIController {
         Map<String, Integer> resultMapAmount = estateRankService.rankCalculate(sortedMapAmount);
         sb.append("amount").append("\n");
         resultMapAmount.forEach((k, v) -> {
-            sb.append(k).append(" : ").append(v).append("\n");
+            sb.append(k).append(":").append(17 - v).append("\n");
         });
         Map<String, Double> sortedMapCount = countMap1.entrySet()
                 .stream()
@@ -129,7 +130,7 @@ public class EstateAPIController {
         Map<String, Integer> resultMapCount = estateRankService.rankCalculate(sortedMapCount);
         sb.append("count").append("\n");
         resultMapCount.forEach((k, v) -> {
-            sb.append(k).append(" : ").append(v).append("\n");
+            sb.append(k).append(":").append(v).append("\n");
         });
         if (type.endsWith("RENT")) {
             Map<String, Double> sortedMapAmount2 = amount2.entrySet()
@@ -144,7 +145,7 @@ public class EstateAPIController {
             Map<String, Integer> resultMapAmount2 = estateRankService.rankCalculate(sortedMapAmount2);
             sb.append("amount2").append("\n");
             resultMapAmount2.forEach((k, v) -> {
-                sb.append(k).append(" : ").append(v).append("\n");
+                sb.append(k).append(":").append(17 - v).append("\n");
             });
             Map<String, Double> sortedMapCount2 = countMap2.entrySet()
                     .stream()
@@ -158,11 +159,12 @@ public class EstateAPIController {
             Map<String, Integer> resultMapCount2 = estateRankService.rankCalculate(sortedMapCount2);
             sb.append("count2").append("\n");
             resultMapCount2.forEach((k, v) -> {
-                sb.append(k).append(" : ").append(v).append("\n");
+                sb.append(k).append(":").append(v).append("\n");
             });
         }
 
         System.out.println(sb.toString());
+        CreateInsertUtil.create(sb.toString(), type);
         return sb.toString();
     }
 
@@ -187,7 +189,7 @@ public class EstateAPIController {
                 double count2 = 0;
                 for (int j = 202405; j <= 202407; j++) {
                     int currentPage = 1;
-                    int numOfRows = 10;
+                    int numOfRows = 1000;
                     int totalCount = 0;
                     int totalPages = 0;
                     do {
@@ -229,7 +231,6 @@ public class EstateAPIController {
                 countMap1.put(APIDefine.LAWD_CD_LIST[k], countMap1.getOrDefault(APIDefine.LAWD_CD_LIST[k], 0.0) + count1);
                 countMap2.put(APIDefine.LAWD_CD_LIST[k], countMap2.getOrDefault(APIDefine.LAWD_CD_LIST[k], 0.0) + count2);
             }
-            System.out.println(sb.toString());
         }
         Map<String, Double> sortedMapAmount = amount.entrySet()
                 .stream()
@@ -243,7 +244,7 @@ public class EstateAPIController {
         Map<String, Integer> resultMapAmount = estateRankService.rankCalculate(sortedMapAmount);
         sb.append("amount").append("\n");
         resultMapAmount.forEach((k, v) -> {
-            sb.append(k).append(" : ").append(v).append("\n");
+            sb.append(k).append(":").append(17 - v).append("\n");
         });
         Map<String, Double> sortedMapCount = countMap1.entrySet()
                 .stream()
@@ -257,7 +258,7 @@ public class EstateAPIController {
         Map<String, Integer> resultMapCount = estateRankService.rankCalculate(sortedMapCount);
         sb.append("count").append("\n");
         resultMapCount.forEach((k, v) -> {
-            sb.append(k).append(" : ").append(v).append("\n");
+            sb.append(k).append(":").append(v).append("\n");
         });
         Map<String, Double> sortedMapAmount2 = amount2.entrySet()
                 .stream()
@@ -271,7 +272,7 @@ public class EstateAPIController {
         Map<String, Integer> resultMapAmount2 = estateRankService.rankCalculate(sortedMapAmount2);
         sb.append("amount2").append("\n");
         resultMapAmount2.forEach((k, v) -> {
-            sb.append(k).append(" : ").append(v).append("\n");
+            sb.append(k).append(":").append(17 - v).append("\n");
         });
         Map<String, Double> sortedMapCount2 = countMap2.entrySet()
                 .stream()
@@ -285,8 +286,10 @@ public class EstateAPIController {
         Map<String, Integer> resultMapCount2 = estateRankService.rankCalculate(sortedMapCount2);
         sb.append("count2").append("\n");
         resultMapCount2.forEach((k, v) -> {
-            sb.append(k).append(" : ").append(v).append("\n");
+            sb.append(k).append(":").append(v).append("\n");
         });
+        System.out.println(sb.toString());
+        CreateInsertUtil.create(sb.toString(), "ONE");
         return sb.toString();
     }
 }
