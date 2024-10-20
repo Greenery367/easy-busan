@@ -43,12 +43,12 @@ public class EstateAPIController {
             double count2 = 0;
             for (int j = 202405; j <= 202407; j++) {
                 int currentPage = 1;
-                int numOfRows = 10;
+                int numOfRows = 1000;
                 int totalCount = 0;
                 int totalPages = 0;
                 do {
                     String uri = UriComponentsBuilder.fromHttpUrl(baseURL)
-                            .queryParam("serviceKey", APIkey.DATA_PORTAL_ESH)
+                            .queryParam("serviceKey", APIkey.DATA_PORTAL_KKH)
                             .queryParam("LAWD_CD", APIDefine.LAWD_CD_LIST[k])
                             .queryParam("DEAL_YMD", j)
                             .queryParam("pageNo", currentPage)  // 현재 페이지 설정
@@ -187,7 +187,7 @@ public class EstateAPIController {
                 double count2 = 0;
                 for (int j = 202405; j <= 202407; j++) {
                     int currentPage = 1;
-                    int numOfRows = 10;
+                    int numOfRows = 1000;
                     int totalCount = 0;
                     int totalPages = 0;
                     do {

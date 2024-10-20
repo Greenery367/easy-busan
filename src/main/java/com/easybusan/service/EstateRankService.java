@@ -12,12 +12,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 @Service
 public class EstateRankService {
 
-    private final ResourceUrlProvider mvcResourceUrlProvider;
-
-    public EstateRankService(ResourceUrlProvider mvcResourceUrlProvider) {
-        this.mvcResourceUrlProvider = mvcResourceUrlProvider;
-    }
-
     public Map<String, Integer> rankCalculate(Map<String, Double> sortedMap){
         AtomicInteger rank = new AtomicInteger(sortedMap.size()); // rank를 AtomicInteger로 변경하여 값 수정 가능
         Map<String, Integer> rankMap = new HashMap<>();
