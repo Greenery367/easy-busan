@@ -1,0 +1,211 @@
+main {
+	width: 100%;
+	max-width: 1200px;
+	flex: 1;
+	min-height: 1000px;
+	background: none;
+}
+
+.first-background {
+	display: flex;
+	justify-content: flex-start;
+	background-image: url("/images/background.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	width: 100%;
+	flex: 1;
+	min-height: 100vh;
+	flex-direction: column;
+	align-items: center;
+}
+
+.top-content {
+	width: 100%;
+	background-image: url("/images/backtop.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+	color: white;
+	text-align: center;
+}
+
+.top-content .logo {
+	display: flex;
+	justify-content: center;
+}
+
+.top-content .logo a img {
+	height: auto;
+	width: 90px;
+}
+
+.service-grid {
+	display: flex;
+	justify-content: space-around;
+}
+
+.service-item {
+	background: #f4f4f4;
+	padding: 20px;
+	border-radius: 10px;
+	text-align: center;
+}
+
+.first-container {
+	margin-top: 40px;
+	max-width: 1200px;
+	font-size: 37px;
+	font-weight: bold;
+	color: white;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.second-background, .third-background {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #36454F;
+	min-height: 100vh;
+	width: 100%;
+	scroll-snap-align: start;
+}
+
+.second-background {
+	position: relative;
+	height: 100vh;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	transition: background-image 0.5s ease-in-out;
+	flex-direction: column;
+}
+
+.second-container {
+	position: relative;
+	z-index: 1;
+	max-width: 1200px;
+	text-align: center;
+	color: white;
+	padding: 20px;
+	font-size: 15px;
+	margin: 0 auto;
+}
+
+.second-background::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 1;
+}
+
+.second-container h1 {
+	color: white;
+	margin-bottom: 20px;
+}
+
+section.second-background .carousel-indicators {
+	width: 100%;
+	position: absolute;
+	bottom: 20px;
+	left: 35%;
+	transform: translateX(-50%);
+	z-index: 2;
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+}
+
+section.second-background .carousel-indicators button {
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	background-color: rgba(255, 255, 255, 0.6);
+	border: none;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+}
+
+/* 선택된(active) 버튼 스타일 */
+section.second-background .carousel-indicators .active {
+	background-color: rgba(255, 255, 255, 1);
+	width: 14px;
+	height: 14px;
+	transition: background-color 0.3s ease, width 0.3s ease, height 0.3s ease; /* 크기 전환 효과 */
+}
+
+.city-text, .city-name,.site-text ,.site-name{
+	opacity: 0;
+	transition: opacity 0.5s ease-in-out;
+}
+
+.city-name,.site-name {
+	margin-top: 20px;
+	font-size: 45px;
+	color: #e6007e;
+	font-weight: bold;
+}
+
+.qna-btn {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	z-index: 1000;
+}
+
+.qna-btn a img {
+	width: auto;
+	height: 80px;
+}
+
+.qna-btn .tooltip {
+	visibility: hidden;
+	background-color: rgba(0, 0, 0, 0.8);
+	color: white;
+	text-align: center;
+	padding: 10px;
+	border-radius: 10px;
+	position: absolute;
+	bottom: 100%;
+	right: 0;
+	margin-bottom: 10px;
+	white-space: nowrap;
+	font-size: 14px;
+	opacity: 0;
+	transition: opacity 0.3s ease-in-out;
+}
+
+.qna-btn .tooltip::after {
+	content: '';
+	position: absolute;
+	top: 100%;
+	right: 30px;
+	margin-left: -5px;
+	border-width: 5px;
+	border-style: solid;
+	border-color: rgba(0, 0, 0, 0.8) transparent transparent transparent; /* 화살표 모양 */
+}
+
+.qna-btn a:hover .tooltip {
+	visibility: visible;
+	opacity: 1;
+}
+/* 세번째영역 */
+
+
+/* 기본 스타일 */
+.third-background {
+  background-color: #e6007e;
+  padding: 50px 20px;
+}
+
+.third-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
