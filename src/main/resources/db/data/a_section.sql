@@ -90,3 +90,7 @@ VALUES (38, '단독/다가구월세수', now());
 
 INSERT INTO section
 VALUES (39, '애완동물', now());
+INSERT INTO section
+VALUES (40, '바다인접지', now());
+INSERT INTO section
+VALUES (41, '학군', now());

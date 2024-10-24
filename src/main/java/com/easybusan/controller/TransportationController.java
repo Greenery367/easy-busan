@@ -114,12 +114,12 @@ public class TransportationController {
         String accessToken=null;
 
         try {
-            // String response = restTemplate.getForObject(apiUrl, String.class);
+            // String data = restTemplate.getForObject(apiUrl, String.class);
             ResponseEntity<ResultToken> response = restTemplate.getForEntity(apiUrl, ResultToken.class);
-            System.out.println("response: " + response);
+            System.out.println("data: " + response);
             accessToken = response.getBody().result.accessToken;
             System.out.println("액세스토큰: " + accessToken);
-            System.out.println("response: " + response);
+            System.out.println("data: " + response);
 
         } catch (Exception e) {
             e.printStackTrace();

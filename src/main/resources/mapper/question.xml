@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.easybusan.repository.interfaces.QuestionRepository">
+	<select
+		id="readQuestionByUserKindId"
+		resultType="com.easybusan.repository.model.Question">
+        select q.*
+        from question q
+        where q.question_id not in (select a.question_id
+                                    from user_answer ua
+                                             join answer a on ua.answer_id = a.answer_id
+                                    where ua.user_kind_id = #{userKindId}) limit 1
+    </select>
+
+</mapper>

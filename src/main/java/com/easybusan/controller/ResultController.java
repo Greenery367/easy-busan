@@ -23,7 +23,7 @@ public class ResultController {
 	@GetMapping("result")
 	public String resultPage(Model model) {
 		// TODO 세션에서 user_id 받아오도록 변경예정
-		// int userId = (int) session.getAttribute("principal");
+		// int userId = (int) session.getAttribute("sessionUser");
 		int userId = 1;
 		Kind kind = resultService.readKindByUserId(userId);
 		List<Section> sectionList = resultService.readSectionsByUserId(userId);

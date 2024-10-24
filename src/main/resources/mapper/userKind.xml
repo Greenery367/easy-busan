@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.easybusan.repository.interfaces.UserKindRepository">
+	<select
+			id="readUserKindIdByUserIdAndKindIdIsNull"
+			resultType="Integer">
+		select user_kind_id from user_kind where user_id = #{userId} and kind_id is null
+	</select>
+
+	<insert id="create">
+		insert into user_kind (user_id) values (#{userId})
+	</insert>
+
+</mapper>

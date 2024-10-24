@@ -60,26 +60,15 @@ create table answer
 -- 해당 응답을 하면 여러 섹션에 점수를 부여
 CREATE TABLE answer_section
 (
-    id         INT AUTO_INCREMENT PRIMARY KEY,
-    answer_id  INT,
-    section_id INT,
-    score      INT,
+    answer_section_id INT AUTO_INCREMENT PRIMARY KEY,
+    answer_id         INT,
+    section_id        INT,
+    score             INT,
     FOREIGN KEY (answer_id) REFERENCES answer (answer_id),
     FOREIGN KEY (section_id) REFERENCES section (section_id)
 );
 
--- 사용자의 응답 정보를 저장
-create table user_answer
-(
-    user_answer_id int auto_increment primary key,
-    user_id        int,
-    answer_id      int,
-    created_at     timestamp not null default current_timestamp,
-    foreign key (user_id) references users (user_id),
-    foreign key (answer_id) references answer (answer_id)
-);
-
--- 사용자에게 매치된 성향
+-- 유저 성향 테스트 결과
 create table user_kind
 (
     user_kind_id int auto_increment primary key,
@@ -88,6 +77,19 @@ create table user_kind
     created_at   timestamp not null default current_timestamp,
     foreign key (user_id) references users (user_id),
     foreign key (kind_id) references kind (kind_id)
+);
+
+-- 사용자의 응답 정보를 저장
+create table user_answer
+(
+    user_answer_id int auto_increment primary key,
+    user_id        int,
+    answer_id      int,
+    user_kind_id   int,
+    created_at     timestamp not null default current_timestamp,
+    foreign key (user_id) references users (user_id),
+    foreign key (answer_id) references answer (answer_id),
+    foreign key (user_kind_id) references user_kind (user_kind_id) ON DELETE CASCADE
 );
 
 -- 데이터 파싱을 통해 산정한 섹션별 성향 랭크

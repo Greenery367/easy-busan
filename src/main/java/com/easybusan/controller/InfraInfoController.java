@@ -69,10 +69,10 @@ public class InfraInfoController {
     // RestTemplate restTemplate = new RestTemplate();
 
     // try {
-    // // String response = restTemplate.getForObject(apiUrl, String.class);
-    // ResponseEntity<ResultToken> response = restTemplate.getForEntity(apiUrl,
+    // // String data = restTemplate.getForObject(apiUrl, String.class);
+    // ResponseEntity<ResultToken> data = restTemplate.getForEntity(apiUrl,
     // ResultToken.class);
-    // String resultStr = response.getBody().result.accessToken;
+    // String resultStr = data.getBody().result.accessToken;
 
     // return ResponseEntity.ok(resultStr);
     // } catch (HttpClientErrorException e) {
@@ -111,7 +111,7 @@ public class InfraInfoController {
         String resultStr=null;
 
         try {
-            // String response = restTemplate.getForObject(apiUrl, String.class);
+            // String data = restTemplate.getForObject(apiUrl, String.class);
             ResponseEntity<ResultToken> response = restTemplate1.getForEntity(apiUrl1, ResultToken.class);
             resultStr = response.getBody().result.accessToken;
         } catch (Exception e) {
