@@ -96,3 +96,60 @@ VALUES (40, '바다인접', now());
 
 INSERT INTO section
 VALUES (41, '학군', now());
+
+INSERT INTO section
+VALUES (42, '편의점', now());
+
+INSERT INTO section
+VALUES (43, '피시방', now());
+
+INSERT INTO section
+VALUES (44, '노래방', now());
+
+INSERT INTO section
+VALUES (45, '여행사', now());
+
+INSERT INTO section
+VALUES (46, '약국', now());
+
+INSERT INTO section
+VALUES (47, '한방병원', now());
+
+INSERT INTO section
+VALUES (48, '기타의료업', now());
+
+INSERT INTO section
+VALUES (49, '주유소', now());
+
+INSERT INTO section
+VALUES (50, '경찰/지구대', now());
+
+INSERT INTO section
+VALUES (51, '목욕탕', now());
+
+INSERT INTO section
+VALUES (52, '우체국', now());
+
+INSERT INTO section
+VALUES (53, '호프/간이주점', now());
+
+INSERT INTO section
+VALUES (54, '피부/미용', now());
+
+INSERT INTO section
+VALUES (55, '미용실', now());
+
+INSERT INTO section
+VALUES (56, '카페', now());
+
+INSERT INTO section
+VALUES (57, '카센터', now());
+
+INSERT INTO section
+VALUES (58, '부산역인접', now());
+
+INSERT INTO section
+VALUES (59, '터미널', now());
+
+INSERT INTO section
+VALUES (60, '공항인접', now());
