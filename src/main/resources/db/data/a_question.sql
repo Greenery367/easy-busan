@@ -38,3 +38,5 @@ INSERT INTO question
 VALUES (19, '고속버스를 자주 이용하시나요?', null, '팁팁2', now());
 INSERT INTO question
 VALUES (20, '비행기를 자주 이용하시나요?', null, '팁팁3', now());
+INSERT INTO question
+VALUES (21, '기차를 자주 이용하시나요?', null, '팁팁3', now());

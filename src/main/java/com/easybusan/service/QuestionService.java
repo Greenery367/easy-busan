@@ -3,9 +3,11 @@ package com.easybusan.service;
 import com.easybusan.dto.UserKindTestDTO;
 import com.easybusan.repository.interfaces.AnswerRepository;
 import com.easybusan.repository.interfaces.QuestionRepository;
+import com.easybusan.repository.interfaces.SectionCategoryRepository;
 import com.easybusan.repository.interfaces.UserKindRepository;
 import com.easybusan.repository.model.Answer;
 import com.easybusan.repository.model.Question;
+import com.easybusan.repository.model.SectionCategory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,6 +18,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class QuestionService {
 
+    private final SectionCategoryRepository sectionCategoryRepository;
     private final UserKindRepository userKindRepository;
     private final QuestionRepository questionRepository;
     private final AnswerRepository answerRepository;
@@ -63,14 +66,13 @@ public class QuestionService {
             Question questionEntity = questionRepository.readQuestionByUserKindId(userKindId);
             // 해당 테스트에 남은 질문이 없는 경우 즉, 이전 질문이 마지막 질문이었을경우
             if (questionEntity == null) {
-                // TODO 성향 매칭 로직 짜야함
-                matchUserKind(userKindId, userId);
-                return UserKindTestDTO.ResponseDTO.builder().last(true).build();
+                List<SectionCategory> sectionCategoryList = sectionCategoryRepository.readAll();
+                return UserKindTestDTO.ResponseDTO.of(sectionCategoryList);
             }
             List<Answer> answerEntityList = answerRepository.findAnswersByQuestionId(questionEntity.getQuestionId());
             resDTO = UserKindTestDTO.ResponseDTO.of(questionEntity, answerEntityList);
         } catch (Exception e) {
-            // TODO 예외 처리
+            e.printStackTrace();
             return null;
         }
         return resDTO;

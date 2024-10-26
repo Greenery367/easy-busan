@@ -28,12 +28,29 @@ create table kind
     created_at timestamp   not null default current_timestamp
 );
 
+-- 섹션 카테고리
+create table section_category
+(
+    section_category_id   int auto_increment primary key,
+    section_category_name varchar(255)
+);
+
 -- 섹션 테이블 (ex. 학교, 극장, 병원 등)
 create table section
 (
     section_id   int auto_increment primary key,
     section_name varchar(50),
     created_at   timestamp not null default current_timestamp
+);
+
+-- 섹션 카테고리와 섹션 매치 테이블
+create table section_category_section
+(
+    section_category_id int,
+    section_id int,
+    primary key (section_category_id, section_id),
+    foreign key (section_category_id) references section_category (section_category_id),
+    foreign key (section_id) references section (section_id)
 );
 
 -- 질문 테이블
