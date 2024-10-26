@@ -920,3 +920,39 @@ INSERT INTO kind_rank (kind_id, section_id, rank) VALUES (13, 30, 3); -- 연제�
 INSERT INTO kind_rank (kind_id, section_id, rank) VALUES (14, 30, 16); -- 영도구
 INSERT INTO kind_rank (kind_id, section_id, rank) VALUES (15, 30, 7); -- 중구
 INSERT INTO kind_rank (kind_id, section_id, rank) VALUES (16, 30, 8); -- 해운대구
+
+-- 바다 인접
+INSERT INTO kind_rank (kind_id, section_id, rank) VALUES (1, 40, 2); -- 강서구
+INSERT INTO kind_rank (kind_id, section_id, rank) VALUES (2, 40, 16); -- 금정구
+INSERT INTO kind_rank (kind_id, section_id, rank) VALUES (3, 40, 1); -- 기장군
+INSERT INTO kind_rank (kind_id, section_id, rank) VALUES (4, 40, 5); -- 남구
+INSERT INTO kind_rank (kind_id, section_id, rank) VALUES (5, 40, 10); -- 동구
+INSERT INTO kind_rank (kind_id, section_id, rank) VALUES (6, 40, 14); -- 동래구
+INSERT INTO kind_rank (kind_id, section_id, rank) VALUES (7, 40, 12); -- 부산진구
+INSERT INTO kind_rank (kind_id, section_id, rank) VALUES (8, 40, 15); -- 북구
+INSERT INTO kind_rank (kind_id, section_id, rank) VALUES (9, 40, 11); -- 사상구
+INSERT INTO kind_rank (kind_id, section_id, rank) VALUES (10, 40, 4); -- 사하구
+INSERT INTO kind_rank (kind_id, section_id, rank) VALUES (11, 40, 8); -- 서구
+INSERT INTO kind_rank (kind_id, section_id, rank) VALUES (12, 40, 7); -- 수영구
+INSERT INTO kind_rank (kind_id, section_id, rank) VALUES (13, 40, 13); -- 연제구
+INSERT INTO kind_rank (kind_id, section_id, rank) VALUES (14, 40, 3); -- 영도구
+INSERT INTO kind_rank (kind_id, section_id, rank) VALUES (15, 40, 9); -- 중구
+INSERT INTO kind_rank (kind_id, section_id, rank) VALUES (16, 40, 6); -- 해운대구
+
+-- 학군
+INSERT INTO kind_rank (kind_id, section_id, rank) VALUES (1, 41, 12); -- 강서구
+INSERT INTO kind_rank (kind_id, section_id, rank) VALUES (2, 41, 6); -- 금정구
+INSERT INTO kind_rank (kind_id, section_id, rank) VALUES (3, 41, 11); -- 기장군
+INSERT INTO kind_rank (kind_id, section_id, rank) VALUES (4, 41, 7); -- 남구
+INSERT INTO kind_rank (kind_id, section_id, rank) VALUES (5, 41, 15); -- 동구
+INSERT INTO kind_rank (kind_id, section_id, rank) VALUES (6, 41, 3); -- 동래구
+INSERT INTO kind_rank (kind_id, section_id, rank) VALUES (7, 41, 2); -- 부산진구
+INSERT INTO kind_rank (kind_id, section_id, rank) VALUES (8, 41, 5); -- 북구
+INSERT INTO kind_rank (kind_id, section_id, rank) VALUES (9, 41, 10); -- 사상구
+INSERT INTO kind_rank (kind_id, section_id, rank) VALUES (10, 41, 4); -- 사하구
+INSERT INTO kind_rank (kind_id, section_id, rank) VALUES (11, 41, 13); -- 서구
+INSERT INTO kind_rank (kind_id, section_id, rank) VALUES (12, 41, 9); -- 수영구
+INSERT INTO kind_rank (kind_id, section_id, rank) VALUES (13, 41, 8); -- 연제구
+INSERT INTO kind_rank (kind_id, section_id, rank) VALUES (14, 41, 14); -- 영도구
+INSERT INTO kind_rank (kind_id, section_id, rank) VALUES (15, 41, 16); -- 중구
+INSERT INTO kind_rank (kind_id, section_id, rank) VALUES (16, 41, 1); -- 해운대구
