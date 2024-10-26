@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.easybusan.repository.interfaces.KindRankRepository">
+    <select id="readKindRanksBySectionIds" resultType="com.easybusan.repository.model.KindRank">
+        select *
+        from kind_rank
+        where section_id in
+        <foreach item="sectionId" collection="sectionIds" open="(" separator="," close=")">
+            #{sectionId}
+        </foreach>
+    </select>
+
+</mapper>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.easybusan.repository.interfaces.SectionRepository">
+    <select id="readSectionScoreBySectionIds" resultType="com.easybusan.dto.SectionDTO$ScoreDTO">
+        SELECT b.section_id, sum(score) as score
+        FROM user_answer as ua
+            join answer_section b
+        on b.answer_id = ua.answer_id
+            join section s on s.section_id = b.section_id
+        where ua.user_id = #{userId}
+          and  s.section_id in (select distinct section_id
+            from section_category_section
+            where section_category_id in
+        <foreach item="scId" collection="sectionCateList" open="(" separator="," close=")">
+            #{scId}
+        </foreach>
+            )
+        group by b.section_id
+        order by b.section_id
+    </select>
+
+</mapper>

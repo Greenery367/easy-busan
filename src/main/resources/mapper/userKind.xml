@@ -5,11 +5,27 @@
 	<select
 			id="readUserKindIdByUserIdAndKindIdIsNull"
 			resultType="Integer">
-		select user_kind_id from user_kind where user_id = #{userId} and kind_id is null
+		select user_kind_id from user_kind where user_id = #{userId} and kind_id is null order by user_kind_id desc limit 1
+	</select>
+
+	<select
+			id="readUserKindIdByUserIdAndKindIdIsNotNull"
+			resultType="Integer">
+		select user_kind_id from user_kind where user_id = #{userId} and kind_id is not null order by user_kind_id desc limit 1
+	</select>
+
+	<select
+			id="readUserKindIdByUserId"
+			resultType="Integer">
+		select user_kind_id from user_kind where user_id = #{userId} order by user_kind_id desc limit 1
 	</select>
 
 	<insert id="create">
 		insert into user_kind (user_id) values (#{userId})
 	</insert>
+
+	<update id="updateUserKindIdById">
+		update user_kind set kind_id = #{kindId} where user_kind_id = #{id}
+	</update>
 
 </mapper>

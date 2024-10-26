@@ -1,18 +1,24 @@
 package com.easybusan.controller;
 
+import com.easybusan.dto.KindDTO;
+import com.easybusan.dto.UserKindDTO;
 import com.easybusan.dto.UserKindTestDTO;
 import com.easybusan.service.QuestionService;
+import com.easybusan.service.UserKindService;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
 public class QuestionController {
 
     private final QuestionService questionService;
+    private final UserKindService userKindService;
 
     @GetMapping("/question")
     public String question(HttpSession session, Model model) {
@@ -27,5 +33,16 @@ public class QuestionController {
         System.out.println(resDTO.getAnswerList());
         model.addAttribute("data", resDTO);
         return "questionTest";
+    }
+
+    @PostMapping("/user-kind")
+    public String getUserKindByIds(@RequestBody UserKindDTO.UpdateDTO reqDTO, HttpSession session, Model model) {
+        // TODO 세션에서 user_id 받아오도록 변경예정
+        // 비회원 기능 아직 없음
+        // int userId = (int) session.getAttribute("sessionUser");
+        int userId = 1;
+        KindDTO.ResponseDTO resDTO = userKindService.getUserKind(reqDTO, userId);
+        model.addAttribute("data", resDTO);
+        return "/result";
     }
 }

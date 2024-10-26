@@ -13,6 +13,7 @@ public class Kind {
 	
 	private Integer kindId;
 	private String kindName;
+	private String kindSGG;
 	private String kindText;
 	
 }

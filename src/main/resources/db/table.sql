@@ -24,6 +24,7 @@ create table kind
 (
     kind_id    int auto_increment primary key,
     kind_name  varchar(50) not null,
+    kind_sgg   varchar(50) not null,
     kind_text  text        not null,
     created_at timestamp   not null default current_timestamp
 );
@@ -47,7 +48,7 @@ create table section
 create table section_category_section
 (
     section_category_id int,
-    section_id int,
+    section_id          int,
     primary key (section_category_id, section_id),
     foreign key (section_category_id) references section_category (section_category_id),
     foreign key (section_id) references section (section_id)
@@ -112,11 +113,11 @@ create table user_answer
 -- 데이터 파싱을 통해 산정한 섹션별 성향 랭크
 create table kind_rank
 (
-    kind_score_id int auto_increment primary key,
-    kind_id       int,
-    section_id    int,
-    rank          int,
-    created_at    timestamp not null default current_timestamp,
+    kind_rank_id int auto_increment primary key,
+    kind_id      int,
+    section_id   int,
+    rank         int,
+    created_at   timestamp not null default current_timestamp,
     foreign key (kind_id) references kind (kind_id),
     foreign key (section_id) references section (section_id),
     CONSTRAINT unique_kind_section UNIQUE (kind_id, section_id)
