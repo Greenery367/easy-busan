@@ -1,43 +1,24 @@
 package com.easybusan.controller;
 
-import java.util.List;
-import java.util.Map;
-
-
+import com.easybusan.dto.BusStopAreaDTO;
+import com.easybusan.repository.model.BusStopResponse;
+import com.easybusan.repository.model.BusStopResponse.Body.Item;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-
-
-import com.easybusan.controller.InfraInfoController.ResultToken;
-import com.easybusan.dto.BusStopAreaDTO;
-import com.easybusan.repository.model.BusStopResponse;
-import com.easybusan.repository.model.BusStopResponse.Body;
-import com.easybusan.repository.model.BusStopResponse.Body.Item;
-import com.easybusan.utils.APIkey;
-
-import org.locationtech.proj4j.BasicCoordinateTransform;
-import org.locationtech.proj4j.CRSFactory;
-import org.locationtech.proj4j.CoordinateReferenceSystem;
-import org.locationtech.proj4j.ProjCoordinate;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.io.UnsupportedEncodingException;
-import java.net.URL;
-import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @RestController
 public class TransportationController {
@@ -76,7 +57,8 @@ public class TransportationController {
         for (int pageNum = 1; pageNum < 10; pageNum++) {
 
             String urlStr = UriComponentsBuilder.fromHttpUrl("http://apis.data.go.kr/6260000/BusanBIMS/busStopList")
-                    .queryParam("serviceKey", APIkey.DATA_PORTAL_USH)
+                    //.queryParam("serviceKey", APIkey.DATA_PORTAL_USH)
+                    .queryParam("serviceKey", "")
                     .queryParam("pageNo", pageNum) // 페이지 번호
                     .queryParam("numOfRows", "1000") // 결과 수
                     .build(false)

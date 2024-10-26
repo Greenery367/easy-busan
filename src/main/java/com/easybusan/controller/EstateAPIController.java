@@ -3,11 +3,9 @@ package com.easybusan.controller;
 import com.easybusan.dto.EstateAPIDTO;
 import com.easybusan.service.EstateRankService;
 import com.easybusan.utils.APIDefine;
-import com.easybusan.utils.APIkey;
 import com.easybusan.utils.CreateInsertUtil;
 import com.easybusan.utils.EstateAPIUrl;
 import lombok.RequiredArgsConstructor;
-import org.springframework.aop.scope.ScopedProxyUtils;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -49,7 +47,8 @@ public class EstateAPIController {
                 int totalPages = 0;
                 do {
                     String uri = UriComponentsBuilder.fromHttpUrl(baseURL)
-                            .queryParam("serviceKey", APIkey.DATA_PORTAL_KKH)
+                            //.queryParam("serviceKey", APIkey.DATA_PORTAL_KKH)
+                            .queryParam("serviceKey", "")
                             .queryParam("LAWD_CD", APIDefine.LAWD_CD_LIST[k])
                             .queryParam("DEAL_YMD", j)
                             .queryParam("pageNo", currentPage)  // 현재 페이지 설정
@@ -194,7 +193,8 @@ public class EstateAPIController {
                     int totalPages = 0;
                     do {
                         String uri = UriComponentsBuilder.fromHttpUrl(baseURL)
-                                .queryParam("serviceKey", APIkey.DATA_PORTAL_KKH)
+                                 //.queryParam("serviceKey", APIkey.DATA_PORTAL_KKH)
+                                .queryParam("serviceKey", "")
                                 .queryParam("LAWD_CD", APIDefine.LAWD_CD_LIST[k])
                                 .queryParam("DEAL_YMD", j)
                                 .queryParam("pageNo", currentPage)  // 현재 페이지 설정
