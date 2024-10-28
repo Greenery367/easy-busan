@@ -30,7 +30,7 @@ public class QuestionController {
         // confirm 보내고 yes 일시 기존 테스트 이어서 하기
         // no 일시 진행중인 테스트 all delete,
         UserKindTestDTO.ResponseDTO resDTO = questionService.firstQuestion(userId);
-        System.out.println(resDTO.getAnswerList());
+        System.out.println("answerlist"+resDTO.getAnswerList());
         model.addAttribute("data", resDTO);
         return "questionTest";
     }
