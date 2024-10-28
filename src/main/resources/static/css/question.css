@@ -1,0 +1,124 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.image-container {
+    margin-bottom: 20px;
+}
+
+.image {
+    height: 157px;
+    width: 900px;
+    position: relative; 
+	background: url('/resources/img/img_water.png') no-repeat center bottom;
+}
+
+.boat-icon {
+    width: 80px;
+    height: 70px;
+    position: absolute;
+    top: 50%; 
+    left: 75px;
+    transform: translateY(-10%);
+    z-index: 2;
+    transition: left 0.5s ease, transform 0.5s ease;
+    transform-origin: left center;
+}
+
+.dots-container {
+    position: absolute;
+    top: 50%;
+    left:-7%;
+    transform: translateY(-50%);
+}
+
+.question-bubble {
+    display: flex;
+    align-items: center;
+	margin-left: 5%;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.character-icon-wrap {
+    width: 70px;
+    height: 70px;
+    margin-right: 10px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid #000;
+}
+
+.character-icon {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+}
+
+.bubble-text {
+    background-color: #000;
+    padding: 20px 30px;
+    border: 2px solid #000;
+    border-radius: 10px;
+    position: relative;
+    max-width: 500px;
+	color: #fff;
+	margin-left:30px;
+	font-size: 20px;
+}
+
+.bubble-text::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -20px;
+    transform: translateY(-50%);
+    border: 10px solid transparent;
+    border-right-color: #000;
+}
+
+.answer-section {
+    padding: 50px;
+    border-radius: 15px;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.answer-selection {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    width: 100%;
+    max-width: 500px;
+}
+
+.answer-btn {
+    padding: 25px 25px;
+    background-color: #DBE4E9;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+	box-shadow: 0px 4px 6px rgba(0, 0, 0.1, 0.1);
+	transition: box-shadow 0.3s ease;
+}
+
+.answer-btn:hover {
+	box-shadow: 0px 6px 8px rgba(0, 0, 0.2, 0.2);
+}
