@@ -42,7 +42,9 @@ public class QuestionController {
         // int userId = (int) session.getAttribute("sessionUser");
         int userId = 1;
         KindDTO.ResponseDTO resDTO = userKindService.getUserKind(reqDTO, userId);
+        System.out.println("reqDTO 내용: " + reqDTO);
         model.addAttribute("data", resDTO);
+        System.out.println("!@!@!@resDTO 내용: "+resDTO);
         return "/result";
     }
 }

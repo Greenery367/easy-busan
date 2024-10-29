@@ -4,7 +4,7 @@
 <script src="${pageContext.request.contextPath}/js/question.js"></script>
 <html>
 <head>
-    <title>Title</title>
+    <title>Easy-busan</title>
 </head>
 <body>
 	<main>

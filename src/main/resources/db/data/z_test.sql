@@ -21,3 +21,4 @@ INSERT INTO user_answer (user_id, answer_id, user_kind_id) values (1, 69, 1);
 INSERT INTO user_answer (user_id, answer_id, user_kind_id) values (1, 73, 1);
 INSERT INTO user_answer (user_id, answer_id, user_kind_id) values (1, 77, 1);
 INSERT INTO user_answer (user_id, answer_id, user_kind_id) values (1, 81, 1);
+UPDATE user_kind set kind_id = 10 where user_kind_id = 1;

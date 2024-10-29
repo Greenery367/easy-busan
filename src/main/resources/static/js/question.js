@@ -1,16 +1,17 @@
 document.addEventListener("DOMContentLoaded", function () {
     let answerId = 1;
     let boatPosition = 75;
+    let selectedCategories = [];
 
     const boatIcon = document.querySelector(".boat-icon");
-    boatIcon.style.left = `${boatPosition}px`;
+    boatIcon.style.left = '${boatPosition}px';
 
-	// 초기 버튼들에 이벤트 리스너 추가
+    // 초기 버튼들에 이벤트 리스너 추가
     document.querySelectorAll(".answer-btn").forEach(button => {
         addAnswerButtonListener(button, answerId++);
     });
 
-	// 서버에 데이터 전송
+    // 서버에 데이터 전송
     function sendAnswer(answerId, answerText) {
         console.log("보내는 데이터:", { answerId, answerText });
 
@@ -36,35 +37,100 @@ document.addEventListener("DOMContentLoaded", function () {
         .catch(error => console.error("Error:", error));
     }
 
-	// 서버에서 받은 다음 질문과 답변 버튼들 화면에 출력
+    // 서버에서 받은 다음 질문과 답변 버튼들 화면에 출력
     function displayNextQuestion(questionData) {
-        if (!questionData || !questionData.answerList) {
-            console.error("Invalid data received:", questionData);
-            return;
-        }
-
-        document.querySelector(".question").textContent = questionData.questionText;
-
         const answerSection = document.querySelector(".answer-selection");
         answerSection.innerHTML = "";
 
-        questionData.answerList.forEach(answer => {
-            const button = createAnswerButton(answer.answerText);
-            answerSection.appendChild(button);
-        });
+        if (questionData.last) {
+            // last가 true인 경우 sectionCategoryList로 버튼 생성
+            if (questionData.sectionCategoryList) {
+                questionData.sectionCategoryList.forEach(category => {
+                    const button = createCategoryButton(category.sectionCategoryId, category.sectionCategoryName);
+                    answerSection.appendChild(button);
+                });
+
+                const resultButton = document.createElement("button");
+                resultButton.textContent = "결과 보기";
+                resultButton.classList.add("result-btn");
+                resultButton.addEventListener("click", sendSelectedCategories);
+                answerSection.appendChild(resultButton);
+            } else {
+                console.error("sectionCategoryList가 존재하지 않습니다:", questionData);
+            }
+        } else {
+            // last가 false인 경우 answerList로 버튼 생성
+            if (questionData.answerList) {
+                document.querySelector(".question").textContent = questionData.questionText;
+                questionData.answerList.forEach(answer => {
+                    const button = createAnswerButton(answer.answerText);
+                    answerSection.appendChild(button);
+                });
+            } else {
+                console.error("answerList가 존재하지 않습니다:", questionData);
+            }
+        }
     }
 
-	// 답변 버튼 생성 및 리스너 추가
+    // 답변 버튼 생성 및 리스너 추가
     function createAnswerButton(answerText) {
         const button = document.createElement("button");
         button.classList.add("answer-btn");
         button.textContent = answerText;
-
         addAnswerButtonListener(button, answerId++);
         return button;
     }
 
-	// 버튼 클릭 시 답변 전송 및 보트 이동
+    // 카테고리 버튼 생성
+    function createCategoryButton(categoryId, categoryName) {
+        const button = document.createElement("button");
+        button.classList.add("category-btn"); 
+        button.textContent = categoryName;
+        
+        button.addEventListener("click", function () {
+            handleCategorySelection(categoryId);
+            button.classList.toggle("selected");
+        });
+
+        return button;
+    }
+
+    // 카테고리 선택 처리
+    function handleCategorySelection(categoryId) {
+        if (selectedCategories.includes(categoryId)) {
+            selectedCategories = selectedCategories.filter(id => id !== categoryId); // 이미 선택한 카테고리 제거
+        } else {
+            selectedCategories.push(categoryId);
+        }
+        console.log("현재 선택된 카테고리 IDs:", selectedCategories); 
+    }
+
+    // 선택된 카테고리 전송
+    function sendSelectedCategories() {
+        if (selectedCategories.length === 0) {
+            alert("결과를 보기 위해 최소 하나의 카테고리를 선택해주세요.");
+            return;
+        }
+        console.log("전송할 카테고리 IDs:", selectedCategories); 
+
+        fetch("/user-kind", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json; charset=UTF-8"
+            },
+				body: JSON.stringify({ ids: selectedCategories })
+        })
+        //.then(response => {
+          //  if (response.ok) {
+            //    window.location.href = "/result"; 
+            //} else {
+              //  throw new Error("서버 응답 실패");
+            //}
+        //})
+        //.catch(error => console.error("Error:", error));
+    }
+
+    // 버튼 클릭 시 답변 전송 및 보트 이동
     function addAnswerButtonListener(button, answerId) {
         button.addEventListener("click", function () {
             sendAnswer(answerId, button.textContent.trim());
@@ -72,14 +138,14 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-	// 보트 이동
-    function moveBoat() {
-        boatPosition += 30;
-        boatIcon.style.left = `${boatPosition}px`;
-        boatIcon.style.transform = "translateY(-10%) rotate(-5deg)";
+    // 보트 이동
+	function moveBoat() {
+	    boatPosition += 30;
+	    boatIcon.style.left = `${boatPosition}px`; // 백틱 사용
+	    boatIcon.style.transform = "translateY(-10%) rotate(-5deg)";
 
-        setTimeout(() => {
-            boatIcon.style.transform = "translateY(-10%) rotate(0deg)";
-        }, 500);
-    }
+	    setTimeout(() => {
+	        boatIcon.style.transform = "translateY(-10%) rotate(0deg)";
+	    }, 500);
+	}
 });

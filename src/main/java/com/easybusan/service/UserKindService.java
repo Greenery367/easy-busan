@@ -28,6 +28,7 @@ public class UserKindService {
     @Transactional
     public KindDTO.ResponseDTO getUserKind(UserKindDTO.UpdateDTO reqDTO, Integer userId) {
         try {
+        	System.out.println("1");
             // 1. 제일 최신의 userKind 조회
             Integer userKindId = userKindRepository.readUserKindIdByUserId(userId);
             if (userKindId == null) {
@@ -36,9 +37,13 @@ public class UserKindService {
             }
             // 2. 필터 걸린 섹션 별 점수 추출
             List<SectionDTO.ScoreDTO> scoreList = sectionRepository.readSectionScoreBySectionIds(userId, reqDTO.getIds());
+            System.out.println("2222"+scoreList);
             // 3. 해당 섹션들의 kind 별 등수 추출
             List<Integer> sectionList = scoreList.stream().map(SectionDTO.ScoreDTO::getSectionId).toList();
+            System.out.println("3333"+sectionList);
+
             List<KindRank> kindRankList = kindRankRepository.readKindRanksBySectionIds(sectionList);
+                        System.out.println("4444"+kindRankList);
             // 4. 등수와 점수를 매치시켜 kind 총점수 1등을 조회 후 리턴
             // <kindId, 점수>
             Map<Integer, Integer> sumMap = kindRankList.stream()
@@ -51,7 +56,7 @@ public class UserKindService {
                             Map.Entry::getValue,
                             Integer::sum
                     ));
-            System.out.println(sumMap);
+            System.out.println("555555555"+sumMap);
             Integer kindId = sumMap.entrySet().stream()
                     .max(Comparator.comparing(Entry::getValue))
                     .map(Entry::getKey)
