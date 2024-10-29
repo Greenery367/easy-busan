@@ -43,7 +43,9 @@ public class QuestionService {
                 } else {
                     Question questionEntity = questionRepository.readQuestionByUserKindId(userKindId);
                     List<Answer> answerEntityList = answerRepository.findAnswersByQuestionId(questionEntity.getQuestionId());
+                    int count = questionRepository.countQuestionByUserKindId(userKindId);
                     resDTO = UserKindTestDTO.ResponseDTO.of(questionEntity, answerEntityList);
+                    resDTO.setCount(count);
                     return resDTO;
                 }
             } else {

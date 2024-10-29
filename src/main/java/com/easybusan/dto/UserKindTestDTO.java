@@ -21,6 +21,7 @@ public class UserKindTestDTO {
         private boolean newTest;
         private boolean last;
         private List<SectionCategoryDTO.ResponseDTO> sectionCategoryList;
+        private int count;
 
         public static ResponseDTO of(Question question, List<Answer> answerList) {
             return ResponseDTO.builder()

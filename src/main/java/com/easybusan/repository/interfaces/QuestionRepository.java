@@ -10,4 +10,7 @@ public interface QuestionRepository {
 
     // 현재 테스트에서 답변하지 않은 질문 1개 조회
     Question readQuestionByUserKindId(Integer userKindId);
+
+    // 답변한 갯수 조회
+    Integer countQuestionByUserKindId(Integer userKindId);
 }

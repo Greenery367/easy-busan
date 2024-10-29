@@ -30,6 +30,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const boatIcon = document.querySelector(".boat-icon");
     boatIcon.style.left = '${boatPosition}px';
+    if (count) {
+        for (let i = 0; i < count; i++) {
+            moveBoat();
+        }
+    }
 
     // 초기 버튼들에 이벤트 리스너 추가
     document.querySelectorAll(".answer-btn").forEach(button => {

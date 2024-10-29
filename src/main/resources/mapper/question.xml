@@ -12,5 +12,9 @@
                                              join answer a on ua.answer_id = a.answer_id
                                     where ua.user_kind_id = #{userKindId}) limit 1
     </select>
-
+    <select id="countQuestionByUserKindId" resultType="Integer">
+        select count(*)
+        from user_answer
+        where user_kind_id = #{userKindId}
+    </select>
 </mapper>

@@ -47,5 +47,8 @@
         </section>
 
 	</main>
+	<script>
+		const count = '${data.count}';
+	</script>
 </body>
 </html>
