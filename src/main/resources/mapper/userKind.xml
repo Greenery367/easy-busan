@@ -28,4 +28,10 @@
 		update user_kind set kind_id = #{kindId} where user_kind_id = #{id}
 	</update>
 
+	<delete id="deleteUserKindById">
+		delete from user_kind where user_kind_id = #{id}
+	</delete>
+
+
+
 </mapper>

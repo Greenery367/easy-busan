@@ -24,7 +24,7 @@ public class QuestionController {
     private final UserKindService userKindService;
 
     @GetMapping("/question")
-    public String question(HttpSession session, Model model) {
+    public String question(@RequestParam(name = "continue", defaultValue = "false") boolean isContinue, HttpSession session, Model model) {
         // TODO 세션에서 user_id 받아오도록 변경예정
         // 비회원 기능 아직 없음
         // int userId = (int) session.getAttribute("sessionUser");
@@ -32,7 +32,7 @@ public class QuestionController {
         // 진행중인 성향테스트가 있는지 확인, 없으면 처음부터 있으면 선택지 제공
         // confirm 보내고 yes 일시 기존 테스트 이어서 하기
         // no 일시 진행중인 테스트 all delete,
-        UserKindTestDTO.ResponseDTO resDTO = questionService.firstQuestion(userId);
+        UserKindTestDTO.ResponseDTO resDTO = questionService.firstQuestion(userId, isContinue);
         System.out.println("answerlist"+resDTO.getAnswerList());
         model.addAttribute("data", resDTO);
         return "questionTest";

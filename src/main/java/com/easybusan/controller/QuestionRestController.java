@@ -25,8 +25,6 @@ public class QuestionRestController {
         // TODO 세션에서 user_id 받아오도록 변경예정
         // int userId = (int) session.getAttribute("sessionUser");
         int userId = 1;
-        // TODO 서비스로 위임
-        System.out.println(reqDTO.getAnswerId());
         Map<String, Object> response = new HashMap<>();
         if (userAnswerService.createUserAnswer(userId, reqDTO.getAnswerId())){
             UserKindTestDTO.ResponseDTO resDTO = questionService.nextQuestion(userId);
@@ -41,6 +39,40 @@ public class QuestionRestController {
             }
         } else {
             // 오류 처리
+            response.put("success", false);
+            response.put("message", "서버 오류");
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
+        }
+    }
+
+    @GetMapping("/user-answer")
+    public ResponseEntity<?> getUserAnswer(HttpSession session) {
+        // TODO 세션에서 user_id 받아오도록 변경예정
+        // int userId = (int) session.getAttribute("sessionUser");
+        int userId = 1;
+        Map<String, Object> response = new HashMap<>();
+        UserKindTestDTO.ResponseDTO resDTO = questionService.nextQuestion(userId);
+        if (resDTO != null) {
+            response.put("success", true);
+            response.put("data", resDTO);
+            return ResponseEntity.status(HttpStatus.OK).body(response);
+        } else {
+            response.put("success", false);
+            response.put("message", "서버 오류");
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
+        }
+    }
+
+    @DeleteMapping("/user-answer")
+    public ResponseEntity<?> deleteUserAnswer(HttpSession session) {
+        // TODO 세션에서 user_id 받아오도록 변경예정
+        // int userId = (int) session.getAttribute("sessionUser");
+        int userId = 1;
+        Map<String, Object> response = new HashMap<>();
+        if ( questionService.deleteUserAnswer(userId)) {
+            response.put("success", true);
+            return ResponseEntity.status(HttpStatus.OK).body(response);
+        } else {
             response.put("success", false);
             response.put("message", "서버 오류");
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);

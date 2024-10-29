@@ -25,35 +25,47 @@ public class QuestionService {
 
     /**
      * 질문 페이지에 처음 들어왔을 때 호출
+     *
      * @param userId
      * @return
      */
     @Transactional
-    public UserKindTestDTO.ResponseDTO firstQuestion(int userId) {
-        // 해당 유저가 진행중인 테스트가 있는지 확인
-        Integer userKindId = userKindRepository.readUserKindIdByUserIdAndKindIdIsNull(userId);
-        // 진행중인 테스트가 존재
-        if (userKindId != null) {
-            return UserKindTestDTO.ResponseDTO.builder().newTest(false).build();
-        }
-        UserKindTestDTO.ResponseDTO resDTO = null;
+    public UserKindTestDTO.ResponseDTO firstQuestion(int userId, boolean isContinue) {
+
         try {
-            // 유저 아이디로 테스트 생성 (userKind 생성은 테스트 시작과 같은 의미)
-            userKindRepository.create(userId);
-            // 최초 이기 때문에 userKindId 있으나 없으나 결과 동일 즉, 아무 질문 가져옴
-            Question questionEntity = questionRepository.readQuestionByUserKindId(null);
-            System.out.println(questionEntity.getQuestionId());
-            List<Answer> answerEntityList = answerRepository.findAnswersByQuestionId(questionEntity.getQuestionId());
-            resDTO = UserKindTestDTO.ResponseDTO.of(questionEntity, answerEntityList);
+            // 해당 유저가 진행중인 테스트가 있는지 확인
+            Integer userKindId = userKindRepository.readUserKindIdByUserIdAndKindIdIsNull(userId);
+            UserKindTestDTO.ResponseDTO resDTO = null;
+            // 진행중인 테스트가 존재
+            if (userKindId != null) {
+                if (!isContinue) {
+                    return UserKindTestDTO.ResponseDTO.builder().newTest(false).build();
+                } else {
+                    Question questionEntity = questionRepository.readQuestionByUserKindId(userKindId);
+                    List<Answer> answerEntityList = answerRepository.findAnswersByQuestionId(questionEntity.getQuestionId());
+                    resDTO = UserKindTestDTO.ResponseDTO.of(questionEntity, answerEntityList);
+                    return resDTO;
+                }
+            } else {
+                // 유저 아이디로 테스트 생성 (userKind 생성은 테스트 시작과 같은 의미)
+                userKindRepository.create(userId);
+                // 최초 이기 때문에 userKindId 있으나 없으나 결과 동일 즉, 아무 질문 가져옴
+                Question questionEntity = questionRepository.readQuestionByUserKindId(null);
+                System.out.println(questionEntity.getQuestionId());
+                List<Answer> answerEntityList = answerRepository.findAnswersByQuestionId(questionEntity.getQuestionId());
+                resDTO = UserKindTestDTO.ResponseDTO.of(questionEntity, answerEntityList);
+                return resDTO;
+            }
         } catch (Exception e) {
             // TODO 예외 처리
             e.printStackTrace();
+            return null;
         }
-        return resDTO;
     }
 
     /**
      * 다음 질문 호출
+     *
      * @param userId
      * @return
      */
@@ -78,9 +90,20 @@ public class QuestionService {
         return resDTO;
     }
 
-    private void matchUserKind(Integer userKindId, int userId) {
-        // TODO 로직 작성 필요
-        // 유저와 맞는 성향(kind) id 받아서 update해야함
+    @Transactional
+    public boolean deleteUserAnswer(int userId) {
+        // 해당 유저가 진행중인 테스트가 있는지 확인
+        Integer userKindId = userKindRepository.readUserKindIdByUserIdAndKindIdIsNull(userId);
+        System.out.println(userKindId);
+        if (userKindId == null) {
+            return false;
+        } else {
+            try {
+                userKindRepository.deleteUserKindById(userKindId);
+            } catch (Exception e) {
+                return false;
+            }
+        }
+        return true;
     }
-
 }

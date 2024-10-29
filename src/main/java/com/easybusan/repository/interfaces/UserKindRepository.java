@@ -19,4 +19,7 @@ public interface UserKindRepository {
 
     // kindId 업데이트
     void updateUserKindIdById(@Param(value = "id") int id, @Param(value = "kindId") int kindId);
+
+    // 삭제
+    void deleteUserKindById(@Param(value = "id") int id);
 }

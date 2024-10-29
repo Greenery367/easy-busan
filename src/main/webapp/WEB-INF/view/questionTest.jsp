@@ -9,17 +9,15 @@
 <body>
 	<main>
 	    <!-- 진행 중인 테스트가 있는지 확인 후 경고 메시지 출력 -->
-		<!--
 		<c:if test="${!data.newTest}">
 		    <script>
 		        if (confirm("진행 중인 테스트가 있습니다. 계속 진행하시겠습니까?")) {
-		            // TODO: 계속 진행하는 요청을 처리
+					continueTest();
 		        } else {
-		            // TODO: 진행 중이던 테스트를 삭제하고 리다이렉트
+					deleteTest();
 		        }
 		    </script>
 		</c:if>
-		-->
 		<section class="question-section">
 			<div class="image-container">
 			    <div class="image">

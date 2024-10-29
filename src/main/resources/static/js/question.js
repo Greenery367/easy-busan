@@ -1,5 +1,30 @@
+// 계속 진행 요청
+function continueTest() {
+    location.href = "/question?continue=true";
+}
+
+// 기존 테스트 삭제 요청
+function deleteTest() {
+    fetch("/user-answer", {
+        method: "DELETE"
+    })
+        .then(response => {
+            if (!response.ok) throw new Error("서버 응답이 실패했습니다.");
+            return response.json();
+        })
+        .then(data => {
+            console.log("받은 데이터:", data);
+            if (data.success) {
+                alert("새로운 테스트를 진행하겠습니다.");
+                window.location.href = "/question";
+            } else {
+                alert("오류가 발생했습니다: " + data.message);
+            }
+        })
+        .catch(error => console.error("Error:", error));
+}
+
 document.addEventListener("DOMContentLoaded", function () {
-    let answerId = 1;
     let boatPosition = 75;
     let selectedCategories = [];
 
@@ -8,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // 초기 버튼들에 이벤트 리스너 추가
     document.querySelectorAll(".answer-btn").forEach(button => {
-        addAnswerButtonListener(button, answerId++);
+        addAnswerButtonListener(button);
     });
 
     // 서버에 데이터 전송
@@ -63,7 +88,8 @@ document.addEventListener("DOMContentLoaded", function () {
             if (questionData.answerList) {
                 document.querySelector(".question").textContent = questionData.questionText;
                 questionData.answerList.forEach(answer => {
-                    const button = createAnswerButton(answer.answerText);
+                    const button = createAnswerButton(answer);
+                    button.setAttribute("data-answer-id", answer.answerId);
                     answerSection.appendChild(button);
                 });
             } else {
@@ -73,11 +99,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // 답변 버튼 생성 및 리스너 추가
-    function createAnswerButton(answerText) {
+    function createAnswerButton(answer) {
         const button = document.createElement("button");
         button.classList.add("answer-btn");
-        button.textContent = answerText;
-        addAnswerButtonListener(button, answerId++);
+        button.textContent = answer.answerText;
+        addAnswerButtonListener(button);
         return button;
     }
 
@@ -131,8 +157,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // 버튼 클릭 시 답변 전송 및 보트 이동
-    function addAnswerButtonListener(button, answerId) {
+    function addAnswerButtonListener(button) {
         button.addEventListener("click", function () {
+            const answerId = event.target.getAttribute("data-answer-id");
             sendAnswer(answerId, button.textContent.trim());
             moveBoat();
         });
@@ -148,4 +175,5 @@ document.addEventListener("DOMContentLoaded", function () {
 	        boatIcon.style.transform = "translateY(-10%) rotate(0deg)";
 	    }, 500);
 	}
+
 });
