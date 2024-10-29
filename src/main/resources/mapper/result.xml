@@ -5,7 +5,7 @@
 	<select
 		id="readKindByUserId"
 		resultType="com.easybusan.repository.model.Kind">
-		select k.* from kind k join user_kind uk on k.kind_id = uk.kind_id where uk.user_id = #{userId}
+		select k.* from kind k join user_kind uk on k.kind_id = uk.kind_id where uk.user_id = #{userId} order by uk.user_kind_id desc limit 1
 	</select>
 	<select
 		id="readSectionsByUserId"

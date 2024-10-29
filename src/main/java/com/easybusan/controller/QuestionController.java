@@ -7,9 +7,12 @@ import com.easybusan.service.QuestionService;
 import com.easybusan.service.UserKindService;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
 
@@ -36,15 +39,17 @@ public class QuestionController {
     }
 
     @PostMapping("/user-kind")
-    public String getUserKindByIds(@RequestBody UserKindDTO.UpdateDTO reqDTO, HttpSession session, Model model) {
+    @ResponseBody
+    public ResponseEntity<?> getUserKindByIds(@RequestBody UserKindDTO.UpdateDTO reqDTO, HttpSession session, Model model) {
         // TODO 세션에서 user_id 받아오도록 변경예정
         // 비회원 기능 아직 없음
         // int userId = (int) session.getAttribute("sessionUser");
         int userId = 1;
-        KindDTO.ResponseDTO resDTO = userKindService.getUserKind(reqDTO, userId);
-        System.out.println("reqDTO 내용: " + reqDTO);
-        model.addAttribute("data", resDTO);
-        System.out.println("!@!@!@resDTO 내용: "+resDTO);
-        return "/result";
+        boolean check = userKindService.getUserKind(reqDTO, userId);
+        if (check) {
+            return ResponseEntity.ok(null);
+        } else {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
     }
 }

@@ -26,14 +26,14 @@ public class UserKindService {
     private final KindRepository kindRepository;
 
     @Transactional
-    public KindDTO.ResponseDTO getUserKind(UserKindDTO.UpdateDTO reqDTO, Integer userId) {
+    public boolean getUserKind(UserKindDTO.UpdateDTO reqDTO, Integer userId) {
         try {
         	System.out.println("1");
             // 1. 제일 최신의 userKind 조회
             Integer userKindId = userKindRepository.readUserKindIdByUserId(userId);
             if (userKindId == null) {
                 // TODO 에러 페이지
-                return null;
+                return false;
             }
             // 2. 필터 걸린 섹션 별 점수 추출
             List<SectionDTO.ScoreDTO> scoreList = sectionRepository.readSectionScoreBySectionIds(userId, reqDTO.getIds());
@@ -62,10 +62,10 @@ public class UserKindService {
                     .map(Entry::getKey)
                     .orElse(null);
             userKindRepository.updateUserKindIdById(userKindId, kindId);
-            return KindDTO.ResponseDTO.of(kindRepository.readKindById(kindId));
+            return true;
         } catch (Exception e) {
             e.printStackTrace();
-            return null;
+            return false;
         }
     }
 }

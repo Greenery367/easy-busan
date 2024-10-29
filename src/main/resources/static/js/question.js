@@ -120,14 +120,14 @@ document.addEventListener("DOMContentLoaded", function () {
             },
 				body: JSON.stringify({ ids: selectedCategories })
         })
-        //.then(response => {
-          //  if (response.ok) {
-            //    window.location.href = "/result"; 
-            //} else {
-              //  throw new Error("서버 응답 실패");
-            //}
-        //})
-        //.catch(error => console.error("Error:", error));
+        .then(response => {
+           if (response.ok) {
+               window.location.href = "/result";
+            } else {
+               throw new Error("서버 응답 실패");
+            }
+        })
+        .catch(error => console.error("Error:", error));
     }
 
     // 버튼 클릭 시 답변 전송 및 보트 이동
