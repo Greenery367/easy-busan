@@ -1,0 +1,57 @@
+.result-content{
+    display: flex;
+    min-height: 100vh;
+    width:100%;
+    background-color: #006c8e;
+    background-image: url("/images/img_particle.png");
+    background-size: cover;
+	background-size: 70%;
+    
+    flex-direction: column;
+    align-items: center;
+  
+
+}
+.result-area{
+    display: flex;
+    height: auto;
+    width: 1200px;
+
+    justify-content: space-around;
+}
+.result-area img{
+    height: 400px;
+    width: auto;
+}
+.result-text-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+
+}
+.result-title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:#003c4f ;
+    color: white;
+    width: 130px ;
+    height:40px;
+    font-size: 30px;
+    border-radius: 20px;
+}
+.first-text{
+    margin-top: 10px;
+    font-family: "Pretendard-Regular", Helvetica;
+    color: white;
+    font-size: 30px;
+    padding-bottom: 10px;
+    border-bottom: 5px dotted #0090bd ;
+}
+.second-text{
+    margin-top: 20px;
+    color: white;
+    font-family: "Pretendard-Regular", Helvetica;
+    font-size: 15px;
+}
