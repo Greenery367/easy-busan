@@ -8,7 +8,7 @@
 </head>
 <%@ include file="/WEB-INF/view/layout/header.jsp" %>
 
-<body>
+
 	<main>
 	    <!-- 진행 중인 테스트가 있는지 확인 후 경고 메시지 출력 -->
 		<c:if test="${!data.newTest}">
@@ -52,5 +52,4 @@
 	<script>
 		const count = '${data.count}';
 	</script>
-</body>
-</html>
+<%@ include file="/WEB-INF/view/layout/footer.jsp" %>
