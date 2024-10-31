@@ -14,13 +14,13 @@
             <img src="/images/map/img_강서구.png">
             <div class="result-text-box">
                 <div class="result-title">
-                    강서구
+                    ${data.kindName}
                 </div>
                 <div class="first-text">
-                   자연을 사랑하는 신도시형, 내용이 길어지면
+                    ${data.kindSGG}
                 </div>
                 <div class="second-text">
-                    안녕하세요 감사해요~ 잘있어요~ 다시 만나요~ 힘들었던 하루~ 힘들었던 하루~
+                    ${data.kindText}
                  </div>
             </div>
         </div>

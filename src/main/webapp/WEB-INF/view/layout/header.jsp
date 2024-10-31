@@ -43,10 +43,10 @@
 		
 							<a href="#"><img src="/images/img_logo_white.png"></a>
 							<div class="nav-group">
-								<a href="#">
+								<a href="/">
 									<div class="text-wrapper">소개</div>
 								</a> 
-								<a href="#">
+								<a href="/question">
 									<div class="text-wrapper">서비스</div>
 								</a> 
 								<a href="#">

@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/question.css">
 <script src="${pageContext.request.contextPath}/js/question.js"></script>
@@ -6,6 +6,8 @@
 <head>
     <title>Easy-busan</title>
 </head>
+<%@ include file="/WEB-INF/view/layout/header.jsp" %>
+
 <body>
 	<main>
 	    <!-- 진행 중인 테스트가 있는지 확인 후 경고 메시지 출력 -->
