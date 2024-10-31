@@ -33,14 +33,7 @@
                 <img src="/resources/img/boogi1.png" alt="character" class="character-icon">
             </div>
             <div class="bubble-text">
-                <c:choose>
-                    <c:when test="${data.last}">
-                        <span class="question">${data.questionText}</span>
-                    </c:when>
-                    <c:otherwise>
-                        <span class="question">${data.questionText}</span>
-                    </c:otherwise>
-                </c:choose>
+                <span class="question">${data.questionText}</span>
             </div>
         </div>
         <c:choose>
@@ -52,7 +45,7 @@
                                     ${category.sectionCategoryName}
                             </button>
                         </c:forEach>
-                            <button class="result-btn">결과 보기</button>
+                        <button class="result-btn">결과 보기</button>
                     </div>
                 </div>
             </c:when>
