@@ -1,6 +1,7 @@
 package com.easybusan.service;
 
 import com.easybusan.dto.UserKindTestDTO;
+import com.easybusan.exception.errors.Exception500;
 import com.easybusan.repository.interfaces.AnswerRepository;
 import com.easybusan.repository.interfaces.QuestionRepository;
 import com.easybusan.repository.interfaces.SectionCategoryRepository;
@@ -66,9 +67,7 @@ public class QuestionService {
                 return resDTO;
             }
         } catch (Exception e) {
-            // TODO 예외 처리
-            e.printStackTrace();
-            return null;
+            throw new Exception500("서버 오류 발생");
         }
     }
 

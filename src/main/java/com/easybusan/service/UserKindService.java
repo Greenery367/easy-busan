@@ -3,6 +3,8 @@ package com.easybusan.service;
 import com.easybusan.dto.KindDTO;
 import com.easybusan.dto.SectionDTO;
 import com.easybusan.dto.UserKindDTO;
+import com.easybusan.exception.errorsRest.RestException400;
+import com.easybusan.exception.errorsRest.RestException500;
 import com.easybusan.repository.interfaces.KindRankRepository;
 import com.easybusan.repository.interfaces.KindRepository;
 import com.easybusan.repository.interfaces.SectionRepository;
@@ -26,24 +28,19 @@ public class UserKindService {
     private final KindRepository kindRepository;
 
     @Transactional
-    public boolean getUserKind(UserKindDTO.UpdateDTO reqDTO, Integer userId) {
+    public void getUserKind(UserKindDTO.UpdateDTO reqDTO, Integer userId) {
         try {
-        	System.out.println("1");
             // 1. 제일 최신의 userKind 조회
             Integer userKindId = userKindRepository.readUserKindIdByUserId(userId);
             if (userKindId == null) {
-                // TODO 에러 페이지
-                return false;
+                throw new RestException400("비정상적인 요청입니다.");
             }
             // 2. 필터 걸린 섹션 별 점수 추출
             List<SectionDTO.ScoreDTO> scoreList = sectionRepository.readSectionScoreBySectionIds(userId, reqDTO.getIds());
-            System.out.println("2222"+scoreList);
             // 3. 해당 섹션들의 kind 별 등수 추출
             List<Integer> sectionList = scoreList.stream().map(SectionDTO.ScoreDTO::getSectionId).toList();
-            System.out.println("3333"+sectionList);
 
             List<KindRank> kindRankList = kindRankRepository.readKindRanksBySectionIds(sectionList);
-                        System.out.println("4444"+kindRankList);
             // 4. 등수와 점수를 매치시켜 kind 총점수 1등을 조회 후 리턴
             // <kindId, 점수>
             Map<Integer, Integer> sumMap = kindRankList.stream()
@@ -56,16 +53,13 @@ public class UserKindService {
                             Map.Entry::getValue,
                             Integer::sum
                     ));
-            System.out.println("555555555"+sumMap);
             Integer kindId = sumMap.entrySet().stream()
                     .max(Comparator.comparing(Entry::getValue))
                     .map(Entry::getKey)
                     .orElse(null);
             userKindRepository.updateUserKindIdById(userKindId, kindId);
-            return true;
         } catch (Exception e) {
-            e.printStackTrace();
-            return false;
+            throw new RestException500("서버 오류 발생");
         }
     }
 }

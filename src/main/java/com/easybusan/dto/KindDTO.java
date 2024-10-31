@@ -16,6 +16,7 @@ public class KindDTO {
         private String kindSGG;
         private String kindText;
         private List<SectionCategory> sectionCategoryList;
+        private boolean noResult;
 
         public static ResponseDTO of(Kind kind, List<SectionCategory> sectionCategoryList) {
             return ResponseDTO.builder()

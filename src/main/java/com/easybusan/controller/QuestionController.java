@@ -33,7 +33,7 @@ public class QuestionController {
         // confirm 보내고 yes 일시 기존 테스트 이어서 하기
         // no 일시 진행중인 테스트 all delete,
         UserKindTestDTO.ResponseDTO resDTO = questionService.firstQuestion(userId, isContinue);
-        System.out.println("answerlist"+resDTO.getAnswerList());
+        System.out.println("answerlist" + resDTO.getAnswerList());
         model.addAttribute("data", resDTO);
         return "questionTest";
     }
@@ -45,11 +45,7 @@ public class QuestionController {
         // 비회원 기능 아직 없음
         // int userId = (int) session.getAttribute("sessionUser");
         int userId = 1;
-        boolean check = userKindService.getUserKind(reqDTO, userId);
-        if (check) {
-            return ResponseEntity.ok(null);
-        } else {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
-        }
+        userKindService.getUserKind(reqDTO, userId);
+        return ResponseEntity.ok(null);
     }
 }
