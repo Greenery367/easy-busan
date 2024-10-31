@@ -40,31 +40,42 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll(".answer-btn").forEach(button => {
         addAnswerButtonListener(button);
     });
+    document.querySelectorAll(".category-btn").forEach(button => {
+        const categoryId = button.getAttribute("data-category-id")
+        button.addEventListener("click", () => {
+            handleCategorySelection(categoryId);
+            button.classList.toggle("selected");
+        });
+    });
+    const resultBtn = document.querySelector(".result-btn");
+    if (resultBtn) {
+        resultBtn.addEventListener("click", sendSelectedCategories);
+    }
 
     // 서버에 데이터 전송
     function sendAnswer(answerId, answerText) {
-        console.log("보내는 데이터:", { answerId, answerText });
+        console.log("보내는 데이터:", {answerId, answerText});
 
         fetch("/user-answer", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json; charset=UTF-8"
             },
-            body: JSON.stringify({ answerId, answerText })
+            body: JSON.stringify({answerId, answerText})
         })
-        .then(response => {
-            if (!response.ok) throw new Error("서버 응답이 실패했습니다.");
-            return response.json();
-        })
-        .then(data => {
-            console.log("받은 데이터:", data);
-            if (data.success) {
-                displayNextQuestion(data.data);
-            } else {
-                alert("오류가 발생했습니다: " + data.message);
-            }
-        })
-        .catch(error => console.error("Error:", error));
+            .then(response => {
+                if (!response.ok) throw new Error("서버 응답이 실패했습니다.");
+                return response.json();
+            })
+            .then(data => {
+                console.log("받은 데이터:", data);
+                if (data.success) {
+                    displayNextQuestion(data.data);
+                } else {
+                    alert("오류가 발생했습니다: " + data.message);
+                }
+            })
+            .catch(error => console.error("Error:", error));
     }
 
     // 서버에서 받은 다음 질문과 답변 버튼들 화면에 출력
@@ -115,9 +126,9 @@ document.addEventListener("DOMContentLoaded", function () {
     // 카테고리 버튼 생성
     function createCategoryButton(categoryId, categoryName) {
         const button = document.createElement("button");
-        button.classList.add("category-btn"); 
+        button.classList.add("category-btn");
         button.textContent = categoryName;
-        
+
         button.addEventListener("click", function () {
             handleCategorySelection(categoryId);
             button.classList.toggle("selected");
@@ -133,7 +144,7 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
             selectedCategories.push(categoryId);
         }
-        console.log("현재 선택된 카테고리 IDs:", selectedCategories); 
+        console.log("현재 선택된 카테고리 IDs:", selectedCategories);
     }
 
     // 선택된 카테고리 전송
@@ -142,23 +153,23 @@ document.addEventListener("DOMContentLoaded", function () {
             alert("결과를 보기 위해 최소 하나의 카테고리를 선택해주세요.");
             return;
         }
-        console.log("전송할 카테고리 IDs:", selectedCategories); 
+        console.log("전송할 카테고리 IDs:", selectedCategories);
 
         fetch("/user-kind", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json; charset=UTF-8"
             },
-				body: JSON.stringify({ ids: selectedCategories })
+            body: JSON.stringify({ids: selectedCategories})
         })
-        .then(response => {
-           if (response.ok) {
-               window.location.href = "/result";
-            } else {
-               throw new Error("서버 응답 실패");
-            }
-        })
-        .catch(error => console.error("Error:", error));
+            .then(response => {
+                if (response.ok) {
+                    window.location.href = "/result";
+                } else {
+                    throw new Error("서버 응답 실패");
+                }
+            })
+            .catch(error => console.error("Error:", error));
     }
 
     // 버튼 클릭 시 답변 전송 및 보트 이동
@@ -171,14 +182,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // 보트 이동
-	function moveBoat() {
-	    boatPosition += 30;
-	    boatIcon.style.left = `${boatPosition}px`; // 백틱 사용
-	    boatIcon.style.transform = "translateY(-10%) rotate(-5deg)";
+    function moveBoat() {
+        boatPosition += 30;
+        boatIcon.style.left = `${boatPosition}px`; // 백틱 사용
+        boatIcon.style.transform = "translateY(-10%) rotate(-5deg)";
 
-	    setTimeout(() => {
-	        boatIcon.style.transform = "translateY(-10%) rotate(0deg)";
-	    }, 500);
-	}
+        setTimeout(() => {
+            boatIcon.style.transform = "translateY(-10%) rotate(0deg)";
+        }, 500);
+    }
 
 });

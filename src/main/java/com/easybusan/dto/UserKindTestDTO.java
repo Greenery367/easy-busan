@@ -37,6 +37,7 @@ public class UserKindTestDTO {
 
         public static ResponseDTO of(List<SectionCategory> sectionCategoryList) {
             return ResponseDTO.builder()
+                    .questionText("원하는 키워드를 선택하세요")
                     .sectionCategoryList(sectionCategoryList.stream()
                             .map(SectionCategoryDTO.ResponseDTO::new)
                             .toList())

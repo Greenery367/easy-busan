@@ -42,8 +42,15 @@ public class QuestionService {
                     return UserKindTestDTO.ResponseDTO.builder().newTest(false).build();
                 } else {
                     Question questionEntity = questionRepository.readQuestionByUserKindId(userKindId);
-                    List<Answer> answerEntityList = answerRepository.findAnswersByQuestionId(questionEntity.getQuestionId());
+                    // 해당 테스트에 남은 질문이 없는 경우 즉, 이전 질문이 마지막 질문이었을경우
                     int count = questionRepository.countQuestionByUserKindId(userKindId);
+                    if (questionEntity == null) {
+                        List<SectionCategory> sectionCategoryList = sectionCategoryRepository.readAll();
+                        resDTO = UserKindTestDTO.ResponseDTO.of(sectionCategoryList);
+                        resDTO.setCount(count);
+                        return resDTO;
+                    }
+                    List<Answer> answerEntityList = answerRepository.findAnswersByQuestionId(questionEntity.getQuestionId());
                     resDTO = UserKindTestDTO.ResponseDTO.of(questionEntity, answerEntityList);
                     resDTO.setCount(count);
                     return resDTO;

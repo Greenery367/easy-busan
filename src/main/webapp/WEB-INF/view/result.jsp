@@ -11,7 +11,7 @@
     </head>
     <section class="result-content">
         <div class="result-area">
-            <img src="/images/map/img_강서구.png">
+            <img src="/images/map/img_${data.kindSGG}.png">
             <div class="result-text-box">
                 <div class="result-title">
                     ${data.kindName}
