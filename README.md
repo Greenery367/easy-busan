@@ -8,7 +8,7 @@
 
 
 * 유튜브 시연 영상 : 
-* 노션 : 
+* 노션 : https://coffee-pike-9e2.notion.site/Easy-Busan-6bfb34829e274e14947c3904e15f5e27?pvs=4
 
 
 
@@ -37,10 +37,10 @@
 ## 3️⃣ 서비스 환경 
 |유형|구분|서비스 배포 환경|
 |------|---|---|
-|SW|OS| Windows10 |
+|SW|OS| Windows11 |
 ||Browser| Chrome 121.0.6167.161 |
 ||Tool| Spring Tool Suite, IntelliJ |
-||BackEnd| Java 17 & MySQL 8.0.26 & h2 & redis & MyBatis |
+||BackEnd| Java 17 & h2 & MyBatis |
 ||Version/Issue 관리| GitHub & GitBash |
 ||Communication| Discord & Notion & Jira |
 
@@ -60,17 +60,13 @@
 ||리버스 지오코딩(WGS84)|-----|-----|
 
 ## 4️⃣ 사이트맵
-### (1) 기업
-### (2) 프리랜서
-### (3) 관리자
 
 ## 5️⃣ ERD 다이어그램
-
+![image](https://github.com/user-attachments/assets/6a4942c3-f8ae-4d58-830d-ca5e41111ea2)
 
 
 ## 6️⃣ 주요 기능 및 화면 소개 &nbsp;
-#### (1) 로그인 및 회원가입 
-#### (2) 메인 화면
+#### (1) 메인 화면
 #### (3) 서비스 소개 페이지
 #### (4) 질문 시작 페이지
 #### (5) 질문 페이지
