@@ -1,0 +1,30 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'BusanFont_Provisional', sans-serif;
+	 
+}
+
+html, body {
+	height: 100%;
+	
+	overflow-x: hidden; /* 가로 스크롤 숨기기 */
+    scroll-behavior: smooth; /* 부드러운 스크롤 */
+}
+
+body {
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 100vh;
+	margin: 0;
+	scroll-snap-type: y mandatory;
+}
+
+.wrapper {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+}

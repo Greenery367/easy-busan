@@ -1,0 +1,139 @@
+header {
+	display: flex;
+	background: #9dd8f6;
+	color: white;
+	justify-content: flex-end;
+	width: 100%;
+	position: relative;
+	z-index: 999;
+	padding-top: 40px;
+	scroll-snap-align: start; /* 스크롤 스냅 위치 */
+}
+
+.topbar {
+	display: flex;
+	justify-content: flex-end;
+	gap: 10px;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	height: 40px;
+	background-color: black;
+	z-index: 1000;
+	padding: 0px 240px;
+	align-items: center;
+}
+
+.top-content {
+	width: 100%;
+	background-repeat: no-repeat;
+	background-size: cover;
+	color: white;
+}
+
+.top-box {
+	width: 100%;
+	background-color: #003c4f;
+}
+
+.header-nav-box .logo {
+	width: auto;
+	height: 40px;
+	justify-content: center;
+}
+
+.top-content .logo a {
+	color: #333;
+	text-decoration: none;
+	font-size: 24px;
+}
+
+.top-content .logo a img {
+	height: auto;
+	width: 90px;
+}
+
+.header-nav-box {
+	padding: 10px;
+	width: 100%;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+.nav-group a {
+	padding: 10px 20px;
+	text-decoration: none;
+	color: white;
+	padding-bottom: 10px;
+}
+
+.nav-group {
+	display: inline-flex;
+	gap: 40px;
+	flex: 0 0 auto;
+	align-items: center;
+	position: relative;
+}
+
+header a {
+	text-decoration: none;
+	margin: 10px;
+}
+ .text-wrapper{
+   display: flex;
+  width: 150px;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 20px;
+  border-radius: 200px;
+  align-items: center;
+  position: relative;
+  }
+   .text-wrapper:active{
+   display: flex;
+  width: 150px;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 20px;
+  border-radius: 200px;
+  align-items: center;
+  position: relative;
+  color:#003c4f;
+  background-color: white;
+  }
+   .text-wrapper:hover{
+   display: flex;
+  width: 150px;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 20px;
+  border-radius: 200px;
+  align-items: center;
+  position: relative;
+  color:white;
+  background-color: #006c8e;
+  }
+  
+
+.topbar .bt-login {
+	display: flex;
+	width: 120px;
+	height: 40px;
+	align-items: center;
+	justify-content: center;
+	gap: 4px;
+	padding: 10px;
+	position: relative;
+	flex: 1;
+	flex-grow: 1;
+	background-color: rgba(0, 194, 255, 1);
+	color: black;
+	font-size: 20px;
+}
+
+.topbar .icon-login {
+	position: relative;
+	width: 24px;
+	height: 24px;
+}

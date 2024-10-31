@@ -1,0 +1,328 @@
+main {
+	width: 100%;
+	max-width: 1200px;
+	flex: 1;
+	min-height: 1000px;
+	background: none;
+}
+
+.first-background {
+	position: relative;
+	/* 부모 요소에 relative를 설정해 자식의 absolute 기준점이 되도록 함 */
+	display: flex;
+	justify-content: flex-start;
+	background-repeat: no-repeat;
+	background-image: url("/images/img_particle.png");
+	background-size: cover;
+	background-size: 70%;
+	background-position: center;
+	width: 100%;
+	min-height: 100vh;
+	flex-direction: column;
+	align-items: center;
+}
+
+.pattern-group {
+	position: absolute;
+	width: 100%;
+	height: 120px;
+	left: 0;
+	z-index: 1;
+}
+
+.img_main {
+	height: auto;
+	width: 460px;
+}
+
+.top-content {
+	width: 100%;
+	background-image: url("/images/backtop.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+	color: white;
+	text-align: center;
+}
+
+.top-content .logo {
+	display: flex;
+	justify-content: center;
+}
+
+.top-content .logo a img {
+	height: auto;
+	width: 90px;
+}
+
+.service-grid {
+	display: flex;
+	justify-content: space-around;
+}
+
+.service-item {
+	background: #f4f4f4;
+	padding: 20px;
+	border-radius: 10px;
+	text-align: center;
+}
+
+.second-background{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #36454F;
+	min-height: 100vh;
+	width: 100%;
+	scroll-snap-align: center;
+}
+.third-background {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #36454F;
+	min-height: 100vh;
+	width: 100%;
+	scroll-snap-align:center;
+	
+	
+	
+}
+
+.second-background {
+	position: relative;
+	height: 100vh;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	transition: background-image 0.5s ease-in-out;
+	flex-direction: column;
+}
+
+.second-container {
+	position: relative;
+	z-index: 1;
+	max-width: 1200px;
+	text-align: center;
+	color: white;
+	padding: 20px;
+	font-size: 15px;
+	margin: 0 auto;
+}
+
+.second-background::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 1;
+}
+
+.a-1 {
+	color: white;
+	margin-bottom: 20px;
+	font-family: "Pretendard-Regular", Helvetica;
+}
+.a-2{
+	color: white;
+	margin-bottom: 20px;
+	font-family: "Pretendard-Regular", Helvetica;
+}
+section.second-background .carousel-indicators {
+	width: 100%;
+	position: absolute;
+	bottom: 20px;
+	left: 35%;
+	transform: translateX(-50%);
+	z-index: 2;
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+}
+
+section.second-background .carousel-indicators button {
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	background-color: rgba(255, 255, 255, 0.6);
+	border: none;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+}
+
+/* 선택된(active) 버튼 스타일 */
+section.second-background .carousel-indicators .active {
+	background-color: rgba(255, 255, 255, 1);
+	width: 14px;
+	height: 14px;
+	transition: background-color 0.3s ease, width 0.3s ease, height 0.3s ease;
+	/* 크기 전환 효과 */
+}
+
+.city-box {
+	display: flex;
+	margin-top: 140px;
+
+}
+
+.city-name {
+	display: flex;
+	margin-left: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-family: "Pretendard-Regular", Helvetica;
+	color: white;
+	font-weight: 400;
+	font-size: 25px;
+	background-color: rgb(0, 60, 79, 1);
+	border-radius: 20px;
+}
+
+.city-text,
+.site-text {
+	font-family: "Pretendard-Regular", Helvetica;
+	font-weight: 400;
+	color: rgb(0, 60, 79, 1);
+	font-size: 25px;
+}
+
+.bt-play {
+	margin-top: 40px;
+	display: flex;
+	width: 280px;
+	height: 60px;
+	align-items: center;
+	justify-content: center;
+	gap: 20px;
+	padding: 10px;
+	border: 4px solid rgb(219, 228, 233, 1);
+	border-radius: 20px;
+	background-color: white;
+}
+
+.play-text {
+	padding-top: 5px;
+	font-family: "Pretendard-Bold", Helvetica;
+	font-size: 25px;
+	font-weight: bolder;
+	color: rgb(0, 60, 79, 1);
+}
+
+.bt-play img {
+	height: auto;
+	width: 30px;
+}
+
+.qna-btn {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	z-index: 1000;
+}
+
+.qna-btn a img {
+	width: auto;
+	height: 80px;
+}
+
+.qna-btn .tooltip {
+	visibility: hidden;
+	background-color: rgba(0, 0, 0, 0.8);
+	color: white;
+	text-align: center;
+	padding: 10px;
+	border-radius: 10px;
+	position: absolute;
+	bottom: 100%;
+	right: 0;
+	margin-bottom: 10px;
+	white-space: nowrap;
+	font-size: 14px;
+	opacity: 0;
+	transition: opacity 0.3s ease-in-out;
+}
+
+.qna-btn .tooltip::after {
+	content: '';
+	position: absolute;
+	top: 100%;
+	right: 30px;
+	margin-left: -5px;
+	border-width: 5px;
+	border-style: solid;
+	border-color: rgba(0, 0, 0, 0.8) transparent transparent transparent;
+	/* 화살표 모양 */
+}
+
+.qna-btn a:hover .tooltip {
+	visibility: visible;
+	opacity: 1;
+}
+
+/* 세번째영역 */
+
+/* 기본 스타일 */
+.third-background {
+	background-color: #00c2ff;
+	background-repeat: no-repeat;
+	background-image: url("/images/pt2.png");
+	background-size: cover;
+	background-size: 90%;
+	background-position: center;
+	padding: 50px 20px;
+}
+
+.third-container {
+	max-width: 1200px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.third-box-white {
+	margin: 10px;
+	display: flex;
+	flex-direction: column;
+	width: 200px;
+	height: 300px;
+	align-items: center;
+	justify-content: center;
+	gap: 30px;
+	padding: 60px 30px;
+	position: relative;
+	background-color: white;
+	border-radius: 0 40px 0 40px;
+	box-shadow: 0px 4px 20px #00000040;
+
+}
+.third-box-blue{
+	margin: 10px;
+	display: flex;
+	flex-direction: column;
+	width: 200px;
+	height: 300px;
+	align-items: center;
+	justify-content: center;
+	gap: 30px;
+	padding: 60px 30px;
+	position: relative;
+	background-color: #006c8e;
+	border-radius: 0 40px 0 40px;
+	box-shadow: 0px 4px 20px #00000040;
+}
+
+.third-container .b-1{
+	font-family: "Pretendard-Regular", Helvetica;
+	font-size: 20px;
+	color: rgb(0, 60, 79, 1);
+}
+.third-container .b-2{
+	font-family: "Pretendard-Bold", Helvetica;
+	font-size: 30px;
+	font-weight: bolder;
+	color: rgb(0, 60, 79, 1);
+}
+.content-group {
+	display: flex;
+}

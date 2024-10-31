@@ -1,0 +1,9 @@
+@charset "UTF-8";
+@font-face {
+    font-family: 'BusanFont_Provisional';
+    src: url('BusanFont_Provisional.woff2') format('woff2'),
+        url('BusanFont_Provisional.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}

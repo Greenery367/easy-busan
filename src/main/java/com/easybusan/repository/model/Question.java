@@ -1,9 +1,6 @@
 package com.easybusan.repository.model;
-
 import lombok.*;
-
 import java.sql.Timestamp;
-
 @Data
 @Builder
 @NoArgsConstructor
@@ -14,4 +11,5 @@ public class Question {
     private Integer parentId;
     private String tip;
     private Timestamp createdAt;
+
 }
