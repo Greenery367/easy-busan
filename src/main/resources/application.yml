@@ -1,42 +1,49 @@
 server:
-  port: 8080 #서버가 사용할 포트 번호 설정 
+  port: 8080 # 서버가 사용할 포트 번호 설정
   servlet:
     encoding:
-      charset: utf-8 #서블릿의 응답과 요청 인코딩을 UTF-8 로 설정 
-      force: true # 요청과 응답에 대해 이 인코딩을 강제로 사용하도록 설정합니다. 
-      
+      charset: utf-8 # 서블릿의 응답과 요청 인코딩을 UTF-8로 설정
+      force: true # 요청과 응답에 대해 이 인코딩을 강제로 사용하도록 설정합니다.
+
 spring:
   mvc:
-    view: 
-      prefix: /WEB-INF/view/ #JSP파일이 위치한 디렉토리 접두사를 설정합니다.
-      suffix: .jsp #뷰 이름에 자동으로 추가될 파일 확장자를 설정합니다.
+    view:
+      prefix: /WEB-INF/view/ # JSP 파일이 위치한 디렉토리 접두사를 설정합니다.
+      suffix: .jsp # 뷰 이름에 자동으로 추가될 파일 확장자를 설정합니다.
   datasource:
-    url: jdbc:h2:mem:easybusan;MODE=MySQL  #데이터 베이스 연결을 위한 URL을 설정 합니다.
-    driver-class-name: org.h2.Driver #드라이버 클래스를 설정 합니다.
-    username: sa #사용자 ID를 지정
-    password: '' #DB 비밀번호 여기서는 빈 문자열로 설정
+    url: jdbc:h2:mem:easybusan;MODE=MySQL # 데이터베이스 연결을 위한 URL을 설정합니다.
+    driver-class-name: org.h2.Driver # 드라이버 클래스를 설정합니다.
+    username: sa # 사용자 ID를 지정
+    password: '' # DB 비밀번호를 빈 문자열로 설정
   sql:
     init:
       schema-locations:
-      - classpath:db/table.sql
+        - classpath:db/table.sql
       data-locations:
-      - classpath:db/data/*
+        - classpath:db/data/*
   h2:
     console:
-      enabled: true #H2 데이터 베이스 콘솔을 활성화 합니다.   
-  
+      enabled: true # H2 데이터베이스 콘솔을 활성화합니다.
   output:
     ansi:
-      enabled: always #콘솔 출력에 ANSI 색상 코드를 사용할 수 있도록 설정 
-      
-#mybatis 설정
+      enabled: always # 콘솔 출력에 ANSI 색상 코드를 사용할 수 있도록 설정
+
+
+# CoolSMS API 설정
+coolsms:
+  api:
+    key: NCSBF84TNTQSSFPA
+    secret: H0ZXHNWHE2F2SL13Z8FONMUYI4RF5G78
+    number: 01051487556
+
+# MyBatis 설정
 mybatis:
   mapper-locations:
-    - classpath:mapper/**/*.xml  #MyBatis 매퍼 파일 위치를 설정합니다. **은 모든 디렉토리, *.xml 은 모든 XML 파일을 의미합니다.
+    - classpath:mapper/**/*.xml # MyBatis 매퍼 파일 위치를 설정합니다. **은 모든 디렉토리, *.xml은 모든 XML 파일을 의미합니다.
   configuration:
-    map-underscore-to-camel-case: true #데이터베이스의 언더스코어 네이밍(column_name)을 카멜 케이스(columnName)로 자동 매핑합니다.
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #SQL 로깅 구현체를 설정합니다.        
+    map-underscore-to-camel-case: true # 데이터베이스의 언더스코어 네이밍(column_name)을 카멜 케이스(columnName)로 자동 매핑합니다.
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # SQL 로깅 구현체를 설정합니다.
 
 logging:
   level:
-    org.apache.ibatis: DEBUG #MyBatis 로깅 레벨을 DEBUG로 설정하여 실행되는 SQL 쿼리와 내부 로깅 정보를 콘솔에 출력합니다.
+    org.apache.ibatis: DEBUG # MyBatis 로깅 레벨을 DEBUG로 설정하여 실행되는 SQL 쿼리와 내부 로깅 정보를 콘솔에 출력합니다.

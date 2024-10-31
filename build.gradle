@@ -25,6 +25,10 @@ repositories {
 }
 
 dependencies {
+	//coolsms 의존성 추가
+    implementation group: 'net.nurigo', name: 'javaSDK', version: '2.2'
+	// 시큐리티 의존성추가
+	implementation 'org.springframework.boot:spring-boot-starter-security'
 	// wgs84(위도, 경도) 변환
 	implementation 'org.locationtech.proj4j:proj4j:1.2.2'
 	// xml 파싱 

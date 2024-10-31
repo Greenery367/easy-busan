@@ -1,0 +1,293 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Quicksand", sans-serif;
+}
+input{
+    cursor: pointer;
+}
+img{
+    margin-left: 22px;
+    height: auto;
+    width: 70px;
+    opacity: 0.9;
+    margin-bottom: 90px;
+}
+
+body {
+    background-color:#f0dcd5 ;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 40px;
+    border-radius: 10px;
+
+}
+
+.register-box {
+    width: 100%;
+}
+
+h2 {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-id-password ,.input-other{
+
+    position: relative;
+    margin-bottom: 25px;
+}
+
+
+
+.input-with-btn {
+    display: flex;
+    align-items: center;
+}
+
+
+.input-with-btn .icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #bbb;
+}
+
+.duplicate-check-btn {
+    background-color: #ce9178;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.duplicate-check-btn:hover {
+    background-color: #c05720;
+}
+
+.input-with-icon {
+    position: relative;
+}
+
+.email-box, .name-box{
+    width: 100%;
+    padding: 12px;
+    padding-left: 40px;
+    padding-right: 40px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-bottom: none;
+    outline: none;
+}
+.phone-box{
+    width: 100%;
+    padding: 12px;
+    padding-left: 40px;
+    padding-right: 40px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    outline: none;
+    border-bottom: none;
+}
+.password-box, .age-box{
+    width: 100%;
+    padding: 12px;
+    padding-left: 40px;
+    padding-right: 40px;
+    border-bottom-left-radius:10px;
+    border-bottom-right-radius:10px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    outline: none;
+}
+
+
+.input-with-icon .icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #bbb;
+}
+
+.icon-eye {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #bbb;
+}
+
+.gender-box {
+    margin-bottom: 15px;
+}
+
+.gender-options {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+}
+
+button.register-btn {
+    background-color: #ce9178;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+button.register-btn:hover {
+    background-color: #c05720;
+}
+
+.terms-box {
+    margin-bottom: 20px;
+}
+
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.gender-options {
+    display: flex;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    color: #bbb;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.gender-label {
+    display: inline-block;
+    width: 185px;
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.gender-label:last-child {
+    border-right: none;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+input[type="radio"]:checked + .gender-label {
+    background-color: #ffffff;
+    color: #c05720;
+    border: 1px solid #c05720;
+    border-radius: 5px;
+    width: 50%;
+}
+
+.gender-label:hover {
+    background-color: #f0f0f0;
+}
+.message-box{
+    display: flex;
+    flex-direction: column;
+}
+.message {
+font-size: 13px;
+}
+.error{
+    color: red;
+}
+.success{
+    color: green;
+}
+
+.auth-code-box {
+    width: 70%; /* 인증 확인 버튼과 균형을 맞추기 위해 필드의 폭을 설정 */
+    padding: 12px;
+    padding-left: 40px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-right: none; /* 버튼과 연결되는 부분을 매끄럽게 하기 위해 오른쪽 테두리 제거 */
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    box-sizing: border-box;
+    height: 48px; /* 버튼과 동일한 높이 설정 */
+}
+
+.verify-btn {
+    width: 30%; /* 인증번호 입력 필드와 균형을 맞추기 위한 너비 설정 */
+    background-color: #ce9178;
+    color: white;
+    border: 1px solid #ddd;
+    border-left: none; /* 입력 필드와 연결되기 위해 왼쪽 테두리 제거 */
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 14px;
+    height: 48px; /* 입력 필드와 동일한 높이 설정 */
+    box-sizing: border-box;
+}
+
+.verify-btn:hover {
+    background-color: #c05720;
+}
+
+.input-with-icon {
+    display: flex; /* 입력 필드와 버튼을 나란히 정렬하기 위해 flex 사용 */
+    align-items: center; /* 수직 가운데 정렬 */
+    width: 100%; /* 전체 가로 크기를 차지하도록 설정 */
+}
+
+.input-with-icon .icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #bbb;
+}
+button.joinBtn{
+    background-color: #ff3c00;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;    
+    margin-top: 20px;
+    width: 100%;
+}
+#joinDone{
+    width: 100%;
+}
+button.joinBtn:hover{
+    background-color: #e0aa0b;
+}

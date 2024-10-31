@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.easybusan.repository.interfaces.UserRepository">
+
+    <!-- 회원 가입 -->
+    <insert id="createUser" parameterType="com.easybusan.repository.model.User">
+        INSERT INTO users (email, password, type)
+        VALUES (#{email}, #{password}, #{type});
+        <selectKey keyProperty="userId" resultType="int" order="AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+    </insert>
+
+    <!-- 회원 상세 정보 -->
+    <insert id="createUserDetail" parameterType="com.easybusan.repository.model.User">
+        INSERT INTO user_detail (user_id, user_name, age, gender, user_legion)
+        VALUES (#{userId}, #{userName}, #{age}, #{gender}, #{userLegion});
+    </insert>
+
+    <!-- 이메일 중복 체크 -->
+    <select id="checkEmail" parameterType="string" resultType="boolean">
+        SELECT EXISTS (
+            SELECT 1 FROM users WHERE email = #{email}
+        )
+    </select>
+
+    <!-- 이메일로 사용자 조회 -->
+    <select id="findByEmail" parameterType="string" resultType="com.easybusan.repository.model.User">
+        SELECT u.user_id AS userId,
+               u.email,
+               u.password,
+               u.type,
+               d.user_name AS userName,
+               d.age,
+               d.gender,
+               d.user_legion AS userLegion,
+               d.created_at AS createdAt
+        FROM users u
+        LEFT JOIN user_detail d ON u.user_id = d.user_id
+        WHERE u.email = #{email}
+    </select>
+
+</mapper>

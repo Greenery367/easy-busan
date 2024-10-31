@@ -16,6 +16,7 @@ create table user_detail
     gender      varchar(2)  not null,
     user_legion varchar(10),
     created_at  timestamp   not null default current_timestamp,
+    phoneNumber varchar(15),
     foreign key (user_id) references users (user_id)
 );
 
