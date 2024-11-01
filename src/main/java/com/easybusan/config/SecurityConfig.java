@@ -21,7 +21,7 @@ public class SecurityConfig {
                 .anyRequest().permitAll() // 필요한 인증 및 권한 설정 추가
                 .and()
                 .csrf().disable();
-
+        http.headers().frameOptions().sameOrigin();
         return http.build();
     }
 
@@ -37,5 +37,3 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 }
-
-

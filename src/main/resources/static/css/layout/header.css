@@ -105,6 +105,21 @@ header {
     font-size: 20px;
 }
 
+.topbar .bt-logout {
+    display: flex;
+    width: 120px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 10px;
+    position: relative;
+    background-color: red;
+    color: black;
+    font-size: 20px;
+}
+
+
 .topbar .icon-login {
     position: relative;
     width: 24px;

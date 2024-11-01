@@ -38,14 +38,14 @@ public class UserController {
     @PostMapping("/login")
     public String login(HttpSession session, UserDTO.loginDTO dto){
 
-        User principal = userService.findUserByEmail(dto);
-   
         System.out.println(dto); 
-        System.out.println(principal);
+        User sessionUser = userService.findUserByEmail(dto);
+   
+        System.out.println(sessionUser);
         
-        if(principal != null){
-            session.setAttribute("principal", principal);
-            return "redirect:/main";
+        if(sessionUser != null){
+            session.setAttribute("sessionUser", sessionUser);
+            return "redirect:/";
         } else{
             return "redirect:/";
         }
@@ -76,7 +76,7 @@ public class UserController {
     //회원가입
     @PostMapping("/join")
     public String joinUser(@ModelAttribute UserDTO.joinDTO dto) {
-        System.out.println("@# Received ====> " + dto);
+        
         int result = userService.joinUser(dto);
         if (result > 0) {
             return "redirect:/user/login";

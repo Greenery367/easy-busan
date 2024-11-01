@@ -288,7 +288,7 @@ section.second-background .carousel-indicators .active {
 	width: 200px;
 	height: 300px;
 	align-items: center;
-	justify-content: center;
+	justify-content: flex-start;
 	gap: 30px;
 	padding: 60px 30px;
 	position: relative;
@@ -304,7 +304,7 @@ section.second-background .carousel-indicators .active {
 	width: 200px;
 	height: 300px;
 	align-items: center;
-	justify-content: center;
+	justify-content: flex-start;
 	gap: 30px;
 	padding: 60px 30px;
 	position: relative;
@@ -323,6 +323,7 @@ section.second-background .carousel-indicators .active {
 	font-size: 30px;
 	font-weight: bolder;
 	color: rgb(0, 60, 79, 1);
+	padding-bottom: 20px;
 }
 .content-group {
 	display: flex;
@@ -347,4 +348,26 @@ section.second-background .carousel-indicators .active {
   }
   .white-title{
     font-size: 25px;
+	padding-bottom: 10px;
+  }
+
+  .content-title,.content-main{
+    color: rgba(0,60,79,1);
+    font-family: "Pretendard-Regular", Helvetica;
+  }
+
+  .content-title{
+    font-size: 25px;
+	font-weight: bolder;
+	padding-bottom: 10px;
+  }
+  .inner-content{
+	margin-top: 10px;
+	display: flex;
+	flex-direction: column;
+	
+  }
+  .content-main,.white-main{
+	border-top: 5px dotted #ccc;
+	padding-top: 10px;
   }

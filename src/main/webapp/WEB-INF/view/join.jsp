@@ -37,11 +37,6 @@
                 </div>
 
                 <div class="input-with-icon">
-                    <span class="icon"><i class="fas fa-phone"></i></span>
-                    <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="휴대폰 번호" required class="phone-box">
-                </div>
-				
-                <div class="input-with-icon">
                     <span class="icon"><i class="fas fa-calendar-alt"></i></span>
                     <input type="number" id="age" name="age" placeholder="나이" required class="age-box">
                 </div>
@@ -67,9 +62,7 @@
                 </div>
             </div>
             
-            <span id="timer" style="float: right; font-size: 14px; color: red;"></span>
-            <button type="button" class="register-btn" id="sendSmsBtn">인증요청</button>
-            <div id="joinDone" style="display: none;">
+            <div id="joinDone" >
                 <button type="submit" id="joinBtn" class="joinBtn">가입하기</button>
             </div>
         </form>

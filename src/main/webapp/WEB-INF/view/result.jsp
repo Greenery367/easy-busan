@@ -33,7 +33,7 @@
 
     <a href="">
         <div class="re-start">
-            <div class="btn-re">다시하기</div>
+            <div class="btn-re"></div>
         </div>
     </a>
     <div class="answer-section">
@@ -48,4 +48,5 @@
     </div>
     </div>
 </section>
+<script src="${pageContext.request.contextPath}/js/question.js"></script>
 <%@ include file="/WEB-INF/view/layout/footer.jsp" %>

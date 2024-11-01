@@ -28,14 +28,6 @@ spring:
     ansi:
       enabled: always # 콘솔 출력에 ANSI 색상 코드를 사용할 수 있도록 설정
 
-
-# CoolSMS API 설정
-coolsms:
-  api:
-    key: NCSBF84TNTQSSFPA
-    secret: H0ZXHNWHE2F2SL13Z8FONMUYI4RF5G78
-    number: 01051487556
-
 # MyBatis 설정
 mybatis:
   mapper-locations:

@@ -60,7 +60,7 @@ public class UserService {
         if (user != null && passwordEncoder.matches(dto.getPassword(), user.getPassword())) {
             return user; 
         } else {
-            return null; 
+            throw new RuntimeException("에러"); 
         }
   
     }

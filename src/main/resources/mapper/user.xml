@@ -26,7 +26,7 @@
     </select>
 
     <!-- 이메일로 사용자 조회 -->
-    <select id="findByEmail" parameterType="string" resultType="com.easybusan.repository.model.User">
+    <select id="findByEmail" resultType="com.easybusan.repository.model.User">
         SELECT u.user_id AS userId,
                u.email,
                u.password,
