@@ -2,10 +2,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/question.css">
 <script src="${pageContext.request.contextPath}/js/question.js"></script>
-<html>
-<head>
-    <title>Easy-busan</title>
-</head>
+
+
 <%@ include file="/WEB-INF/view/layout/header.jsp" %>
 
 

@@ -3,7 +3,7 @@
 
 	<head>
 		<meta charset="UTF-8">
-		<title>Insert title here</title>
+		<title>이지부산</title>
 		<%@ include file="/WEB-INF/view/layout/header.jsp" %>
 			<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 				<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -30,13 +30,14 @@
 		<div class="site-text">당신을 위한 개인맞춤 컨설터</div>
 
 		<img class="img_main" src="/images/img_main.png" />
+		<a href="/question" class="no-underline">
 		<div class="bt-play">
-			<div class="play-text">지금 체험하기</div>
-			<img src="/images/icon_arrow.png">
-		</div>
-
+				<span class="play-text">지금 체험하기</span>
+				<img src="/images/icon_arrow.png">
+			</div>	
+		</a>
 		<div class="qna-btn">
-			<a href=""> <img alt="qna" src="/images/btn2.png">
+			<a href="/question"> <img alt="qna" src="/images/btn2.png">
 				<div class="tooltip">나에게 맞는 부산 찾기</div>
 			</a>
 
@@ -65,28 +66,33 @@
 			<div class="content-group">
 				<div class="third-box-blue">
 					<div class="inner-content">
-						
+						<span class="white-title">신뢰성</span>
+                        <span class="white-main">공공기관에서 제공하는  최신화된 데이터에 기반한 정보 제공  </span>
 					</div>
 				</div>
 				<div class="third-box-white">
 					<div class="inner-content">
-
+                    <span class="content-title">맞춤형</span>
+                     <span class="content-main">MBTI 와 같은 질의 방식으로  개개인의 성향을 분석하여 사용자의 특성에 맞는 이주지역 추천</span>
+</span>
 					</div>
 				</div>
 				<div class="third-box-blue">
 					<div class="inner-content">
-
+           <span class="content-title">이주컨설팅</span>
+           <span class="content-main">질의 결과에 따라 사용자의 특성에 맞는 타이틀과 함께 알맞은 지역 관련 소개 </span>
 					</div>
 				</div>
 				<div class="third-box-white">
 					<div class="inner-content">
-
+          <span class="content-title">정보제공</span>
+          <span class="content-main">부산 거주시 유용한 복지나 청년혜택 등 다양한 정보 제공</span>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
-
+	
 	<script type="text/javascript" src="/js/index.js" defer></script>
 	<script type="text/javascript" src="/js/image.js" defer></script>
 

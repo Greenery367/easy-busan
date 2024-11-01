@@ -31,7 +31,11 @@
         </div>
     </div>
 
-    <div class="bt-restart">다시하기</div>
+    <a href="">
+        <div class="re-start">
+            <div class="btn-re">다시하기</div>
+        </div>
+    </a>
     <div class="answer-section">
         <div class="answer-selection">
             <c:forEach var="category" items="${data.sectionCategoryList}">
@@ -45,4 +49,3 @@
     </div>
 </section>
 <%@ include file="/WEB-INF/view/layout/footer.jsp" %>
-

@@ -1,31 +1,23 @@
-// document.addEventListener("DOMContentLoaded", function () {
-//     const cityText = '당신을 위한 도시';
-//     const cityName = '부산';
-//     const siteText = '당신을 위한 개인맞춤 컨설터';
-    
-//     const cityTextContainer = document.querySelector('.city-text');
-//     const cityNameContainer = document.querySelector('.city-name');
-// 	const siteTextContainer = document.querySelector('.site-text');
- 
-   
-//     setTimeout(function () {
-//         cityTextContainer.textContent = cityText;
-//         cityTextContainer.style.opacity = '1'; 
-//     }, 500);
+document.addEventListener("DOMContentLoaded", function () {
+    const boxes = document.querySelectorAll(".third-box-blue, .third-box-white");
 
-   
-//     setTimeout(function () {
-//         cityNameContainer.textContent = cityName;
-//         cityNameContainer.style.opacity = '1'; 
-//     }, 1000); 
-   
-//        setTimeout(function () {
-//         siteTextContainer.textContent = siteText;
-//         siteTextContainer.style.opacity = '1'; 
-//     }, 1500); 
-    
-//        setTimeout(function () {
-//         siteNameContainer.textContent = siteName;
-//         siteNameContainer.style.opacity = '1'; 
-//     }, 2000); 
-// });
+    const observerOptions = {
+      root: null, // 뷰포트를 기준으로 관찰
+      rootMargin: '0px',
+      threshold: 0.2 // 요소가 20% 이상 보이면 콜백 실행
+    };
+
+    const observerCallback = (entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+          observer.unobserve(entry.target); // 이미 보인 요소는 관찰 종료
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    boxes.forEach(box => {
+      observer.observe(box);
+    });
+  });

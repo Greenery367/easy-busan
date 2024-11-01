@@ -9,6 +9,7 @@
     
     flex-direction: column;
     align-items: center;
+    padding-top: 50px;
   
 
 }
@@ -54,4 +55,22 @@
     color: white;
     font-family: "Pretendard-Regular", Helvetica;
     font-size: 15px;
+}
+
+.re-start {
+    width: 100%;
+    display: inline-block; /* inline 요소처럼 취급하여 필요한 만큼만 공간을 차지하게 함 */
+}
+
+.btn-re {
+    margin-left: 40px;
+    height: 60px;
+    width: 200px;
+    background: url('/images/icon/bt_play.png') no-repeat center;
+    background-size: cover;
+    transition: background-image 0.3s ease;
+}
+
+.btn-re:hover {
+    background-image: url('/images/icon/bt_play_hover.png'); /* 호버 시 변경될 이미지 경로 */
 }

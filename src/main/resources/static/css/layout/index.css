@@ -1,10 +1,11 @@
-main {
+/* main {
 	width: 100%;
 	max-width: 1200px;
 	flex: 1;
 	min-height: 1000px;
 	background: none;
 }
+ */
 
 .first-background {
 	position: relative;
@@ -326,3 +327,24 @@ section.second-background .carousel-indicators .active {
 .content-group {
 	display: flex;
 }
+.no-underline {
+    text-decoration: none;
+}
+.third-box-blue, .third-box-white {
+	opacity: 0;
+	transform: translateY(50px);
+	transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  
+  .third-box-blue.show, .third-box-white.show {
+	opacity: 1;
+	transform: translateY(0);
+  }
+
+ .white-title,.white-main{
+    color: white;
+    font-family: "Pretendard-Regular", Helvetica;
+  }
+  .white-title{
+    font-size: 25px;
+  }

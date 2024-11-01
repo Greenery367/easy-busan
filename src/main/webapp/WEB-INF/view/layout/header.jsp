@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>이지부산</title>
 <link rel="stylesheet" href="/css/layout/header.css">
 <link rel="stylesheet" href="/css/common.css">
 <link rel="stylesheet" href="/css/layout/footer.css">
@@ -21,11 +21,10 @@
 				</c:when>
 				<c:otherwise>
 
-					<a href="">
-
-						<div class="bt-login">
+					<a href="" class="no-underline">
+						<span class="bt-login">
 							<img class="icon-login" src="/images/icon_login.png" /> 로그인
-						</div>
+						</span>
 					</a>
 
 				</c:otherwise>
@@ -41,7 +40,7 @@
 		
 						<div class="header-nav-box">
 		
-							<a href="#"><img src="/images/img_logo_white.png"></a>
+							<a href="/"><img src="/images/img_logo_white.png"></a>
 							<div class="nav-group">
 								<a href="/">
 									<div class="text-wrapper">소개</div>
