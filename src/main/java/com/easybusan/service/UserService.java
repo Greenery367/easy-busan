@@ -3,6 +3,8 @@ package com.easybusan.service;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.easybusan.exception.errors.Exception400;
+import com.easybusan.exception.errors.Exception401;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -58,13 +60,14 @@ public class UserService {
     //로그인 로직
     public User findUserByEmail(UserDTO.loginDTO dto){
         User user = userRepository.findByEmail(dto.getEmail());
-        System.out.println("User found: " + user);
-        System.out.println("Password matches: " + (user != null && passwordEncoder.matches(dto.getPassword(), user.getPassword())));
+        if (user == null) {
+            throw new Exception400("존재하지 않는 계정입니다.");
+        }
 
-        if (user != null && passwordEncoder.matches(dto.getPassword(), user.getPassword())) {
+        if (passwordEncoder.matches(dto.getPassword(), user.getPassword())) {
             return user; 
         } else {
-            throw new RuntimeException("에러"); 
+            throw new Exception400("비밀번호가 일치하지않습니다.");
         }
   
     }

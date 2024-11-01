@@ -2,6 +2,9 @@ package com.easybusan.controller;
 
 import com.easybusan.dto.UserAnswerDTO;
 import com.easybusan.dto.UserKindTestDTO;
+import com.easybusan.exception.errors.Exception401;
+import com.easybusan.exception.errorsRest.RestException401;
+import com.easybusan.repository.model.User;
 import com.easybusan.service.QuestionService;
 import com.easybusan.service.UserAnswerService;
 import jakarta.servlet.http.HttpSession;
@@ -22,9 +25,11 @@ public class QuestionRestController {
 
     @PostMapping("/user-answer")
     public ResponseEntity<?> answerQuestion(@RequestBody UserAnswerDTO.CreateDTO reqDTO, HttpSession session) {
-        // TODO 세션에서 user_id 받아오도록 변경예정
-        // int userId = (int) session.getAttribute("sessionUser");
-        int userId = 1;
+        User sessionUser = (User) session.getAttribute("sessionUser");
+        if (sessionUser == null) {
+            throw new RestException401("로그인이 필요합니다.");
+        }
+        int userId = sessionUser.getUserId();
         Map<String, Object> response = new HashMap<>();
         if (userAnswerService.createUserAnswer(userId, reqDTO.getAnswerId())){
             UserKindTestDTO.ResponseDTO resDTO = questionService.nextQuestion(userId);
@@ -47,9 +52,11 @@ public class QuestionRestController {
 
     @GetMapping("/user-answer")
     public ResponseEntity<?> getUserAnswer(HttpSession session) {
-        // TODO 세션에서 user_id 받아오도록 변경예정
-        // int userId = (int) session.getAttribute("sessionUser");
-        int userId = 1;
+        User sessionUser = (User) session.getAttribute("sessionUser");
+        if (sessionUser == null) {
+            throw new RestException401("로그인이 필요합니다.");
+        }
+        int userId = sessionUser.getUserId();
         Map<String, Object> response = new HashMap<>();
         UserKindTestDTO.ResponseDTO resDTO = questionService.nextQuestion(userId);
         if (resDTO != null) {
@@ -65,9 +72,11 @@ public class QuestionRestController {
 
     @DeleteMapping("/user-answer")
     public ResponseEntity<?> deleteUserAnswer(HttpSession session) {
-        // TODO 세션에서 user_id 받아오도록 변경예정
-        // int userId = (int) session.getAttribute("sessionUser");
-        int userId = 1;
+        User sessionUser = (User) session.getAttribute("sessionUser");
+        if (sessionUser == null) {
+            throw new RestException401("로그인이 필요합니다.");
+        }
+        int userId = sessionUser.getUserId();
         Map<String, Object> response = new HashMap<>();
         if ( questionService.deleteUserAnswer(userId)) {
             response.put("success", true);

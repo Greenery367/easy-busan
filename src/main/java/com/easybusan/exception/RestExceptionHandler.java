@@ -12,9 +12,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestControllerAdvice
-public class UniRestExceptionHandler {
+public class RestExceptionHandler {
 
-    private static final Logger logger = LoggerFactory.getLogger(UniRestExceptionHandler.class);
+    private static final Logger logger = LoggerFactory.getLogger(RestExceptionHandler.class);
 
     @ExceptionHandler(RestException400.class)
     public ResponseEntity<?> handleException400(RestException400 ex) {

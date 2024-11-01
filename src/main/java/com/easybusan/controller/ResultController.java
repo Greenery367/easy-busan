@@ -3,6 +3,8 @@ package com.easybusan.controller;
 import java.util.List;
 
 import com.easybusan.dto.KindDTO;
+import com.easybusan.exception.errors.Exception401;
+import com.easybusan.repository.model.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,9 +25,11 @@ public class ResultController {
 
 	@GetMapping("/result")
 	public String resultPage(Model model) {
-		// TODO 세션에서 user_id 받아오도록 변경예정
-		// int userId = (int) session.getAttribute("sessionUser");
-		int userId = 1;
+		User sessionUser = (User) session.getAttribute("sessionUser");
+        if (sessionUser == null) {
+            throw new Exception401("로그인이 필요합니다.");
+        }
+		int userId = sessionUser.getUserId();
 		KindDTO.ResponseDTO kind = resultService.readKindByUserId(userId);
 		model.addAttribute("data", kind);
 		return "/result";
