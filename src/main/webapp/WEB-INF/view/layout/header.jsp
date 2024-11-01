@@ -53,8 +53,8 @@
 								<a href="/question">
 									<div class="text-wrapper">서비스</div>
 								</a>
-								<a href="#">
-									<div class="text-wrapper">문의</div>
+								<a href="info">
+									<div class="text-wrapper">정책</div>
 								</a>
 								<a href="#">
 									<div class="text-wrapper">커뮤니티</div>
