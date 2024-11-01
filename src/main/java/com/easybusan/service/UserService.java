@@ -54,7 +54,7 @@ public class UserService {
         userRepository.createUserDetail(dto);
 		return result;
 	} 
-    
+
     //로그인 로직
     public User findUserByEmail(UserDTO.loginDTO dto){
         User user = userRepository.findByEmail(dto.getEmail());
