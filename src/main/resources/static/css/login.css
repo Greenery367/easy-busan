@@ -14,13 +14,13 @@ b{
 img{
     margin-left: 22px;
     height: auto;
-    width: 70px;
+    width: 150px;
     opacity: 0.9;
     margin-bottom: 90px;
 }
 
 body {
-    background-color:#f0dcd5 ;
+    background-color:white;
 
     background-position: center;
     height: 100vh;
@@ -28,13 +28,17 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background-repeat: no-repeat;
+	background-image: url("/images/img_particle.png");
+	background-size: cover;
+	background-size: 90%;
 
 }
 
 
 .login-container {
     display: flex;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: #00c2ff;
     border-radius: 10px;
     /*box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);*/
     overflow: hidden;
@@ -72,7 +76,7 @@ input[type="text"], input[type="password"] {
 }
 
 input:focus {
-    border-color: #c05720;
+    border-color: #0090bd;
     background-color: #fae1d7;
 }
 
@@ -80,7 +84,7 @@ input:focus {
 label {
     font-size: 14px;
     margin-bottom: 5px;
-    color: #333;
+    color: white;
 }
 
 .options {
@@ -96,7 +100,7 @@ label {
 .links a {
     
     font-size: 12px;
-    color: #666;
+    color: white;
     text-decoration: none;
 }
 
@@ -106,7 +110,7 @@ label {
 
 button#login-btn {
     padding: 12px;
-    background-color: #ce9178;
+    background-color: #0090bd;
     color: white;
     border: none;
     border-radius: 5px;
@@ -116,7 +120,7 @@ button#login-btn {
 }
 
 button#login-btn:hover {
-    background-color: #c05720;
+    background-color: #003c4f;
 }
 
 .back-btn {

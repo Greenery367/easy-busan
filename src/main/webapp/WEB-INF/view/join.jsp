@@ -6,7 +6,7 @@
     <title>회원가입</title>
 </head>
 <body>
-<a href="/"><img src="/image/logo3.png"></a>
+    <a href="/"><img src="/images/buki.png"></a>
 <div class="register-container">
     
     <div class="register-box">
@@ -50,9 +50,7 @@
                 <label for="female" class="gender-label">여자</label>
             </div>
 
-            <div class="terms-box">
-                <label><input type="checkbox" name="terms" required> 약관 동의</label>
-            </div>
+            
 
             <div id="authSection" style="display: none;">
                 <div class="input-with-icon">

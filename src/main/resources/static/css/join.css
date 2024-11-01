@@ -10,18 +10,24 @@ input{
 img{
     margin-left: 22px;
     height: auto;
-    width: 70px;
+    width: 150px;
     opacity: 0.9;
-    margin-bottom: 90px;
+    margin-bottom: 60px;
 }
 
 body {
-    background-color:#f0dcd5 ;
+    background-color:white;
+
+    background-position: center;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background-repeat: no-repeat;
+	background-image: url("/images/img_particle.png");
+	background-size: cover;
+	background-size: 90%;
 
 }
 
@@ -31,7 +37,7 @@ body {
     align-items: center;
     width: 100%;
     max-width: 500px;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: #00c2ff;
     padding: 40px;
     border-radius: 10px;
 
@@ -73,11 +79,11 @@ form {
     left: 12px;
     top: 50%;
     transform: translateY(-50%);
-    color: #bbb;
+    border-color: #003c4f;
 }
 
 .duplicate-check-btn {
-    background-color: #ce9178;
+    border-color: #003c4f;
     color: white;
     border: none;
     padding: 12px 20px;
@@ -87,7 +93,7 @@ form {
 }
 
 .duplicate-check-btn:hover {
-    background-color: #c05720;
+    border-color: #003c4f;
 }
 
 .input-with-icon {
@@ -134,7 +140,7 @@ form {
     left: 12px;
     top: 50%;
     transform: translateY(-50%);
-    color: #bbb;
+    color: #003c4f;
 }
 
 .icon-eye {
@@ -143,7 +149,7 @@ form {
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
-    color: #bbb;
+    color: #003c4f;
 }
 
 .gender-box {
@@ -168,7 +174,7 @@ button.register-btn {
 }
 
 button.register-btn:hover {
-    background-color: #c05720;
+    background-color:#003c4f;
 }
 
 .terms-box {
@@ -275,7 +281,7 @@ font-size: 13px;
     color: #bbb;
 }
 button.joinBtn{
-    background-color: #ff3c00;
+    background-color: #0090bd;
     color: white;
     border: none;
     padding: 12px;
@@ -289,5 +295,5 @@ button.joinBtn{
     width: 100%;
 }
 button.joinBtn:hover{
-    background-color: #e0aa0b;
+    background-color: #003c4f;
 }

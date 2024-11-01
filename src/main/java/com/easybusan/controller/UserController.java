@@ -78,6 +78,7 @@ public class UserController {
     public String joinUser(@ModelAttribute UserDTO.joinDTO dto) {
         
         int result = userService.joinUser(dto);
+        
         if (result > 0) {
             return "redirect:/user/login";
         } else {

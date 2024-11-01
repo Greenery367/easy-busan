@@ -6,7 +6,7 @@
     <title>Login</title>
 </head>
 <body>
-	<a href="/"><img src="/image/logo3.png"></a>
+	<a href="/"><img src="/images/buki.png"></a>
 	
 	<div class="login-container">
 	    <div class="login-box">
@@ -18,7 +18,6 @@
 	            <input type="password" id="password" name="password" placeholder="비밀번호" required>
 	
 	            <div class="options">
-	                <label><input type="checkbox" name="remember"> 자동로그인</label>
 	                <div class="links">
 	                    <a href="/user/join">회원가입</a>
 	                </div>
@@ -29,34 +28,7 @@
 	    </div>
 	</div>
 	
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<script>
-	    $(document).ready(function() {
-	        $('body').css('opacity', '1');
 	
-	        $('.links a').on('click', function(e) {
-	            e.preventDefault(); 
-	            var linkUrl = $(this).attr('href');
-	            $('body').animate({ opacity: 0 }, 500, function() {
-	                window.location.href = linkUrl;
-	            });
-	        });
-	
-	        $('#login-btn').on('click', function() {
-	            $('body').animate({ opacity: 0 }, 500);
-	        });
-	
-	        $('form').on('submit', function() {
-	            $('body').css('opacity', '0');
-	        });
-	
-	        window.addEventListener('pageshow', function(event) {
-	            if (event.persisted || (window.performance && window.performance.navigation.type === 2)) {
-	                $('body').css('opacity', '1');
-	            }
-	        });
-	    });
-	</script>
 	
 	</body>
 </html>

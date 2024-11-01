@@ -11,6 +11,7 @@ public interface UserRepository {
     public int createUser(UserDTO.joinDTO dto);
     //  아이디 중복확인
     public boolean checkEmail(String email);
+    public int createUserDetail(UserDTO.joinDTO dto);
     // 로그인
     public User loginByUserIdandPassword(UserDTO.loginDTO dto);
     // 아이디로 로그인
