@@ -81,4 +81,5 @@
 ![정보 페이지 3](https://github.com/user-attachments/assets/44df2e0a-fb7f-4a95-963b-a5342eb7d2e1)
 
 #### (7) 커뮤니티 게시판
-![Uploading 커뮤니티 페이지3.png…]()
+![커뮤니티 페이지3](https://github.com/user-attachments/assets/28332183-c85a-4395-acac-6c491bdd5372)
+
