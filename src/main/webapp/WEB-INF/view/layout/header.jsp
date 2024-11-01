@@ -19,7 +19,7 @@
 			<section class="topbar">
 				<c:choose>
 					<c:when test="${sessionUser != null}">
-						${sessionUser.user_name}
+						${sessionUser.userName}
 						<a href="/user/logout" class="no-underline">
 							<span class="bt-logout">로그아웃</span>
 						</a>

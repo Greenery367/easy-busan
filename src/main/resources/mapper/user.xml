@@ -13,9 +13,9 @@
     </insert>
 
     <!-- 회원 상세 정보 -->
-    <insert id="createUserDetail" parameterType="com.easybusan.repository.model.User">
-        INSERT INTO user_detail (user_id, user_name, age, gender, user_legion)
-        VALUES (#{userId}, #{userName}, #{age}, #{gender}, #{userLegion});
+    <insert id="createUserDetail">
+        INSERT INTO user_detail (user_id, user_name, age, gender)
+        VALUES (#{userId}, #{userName}, #{age}, #{gender});
     </insert>
 
     <!-- 이메일 중복 체크 -->

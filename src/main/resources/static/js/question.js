@@ -86,6 +86,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (questionData.last) {
             // last가 true인 경우 sectionCategoryList로 버튼 생성
             if (questionData.sectionCategoryList) {
+                document.querySelector(".question").textContent = questionData.questionText;
                 questionData.sectionCategoryList.forEach(category => {
                     const button = createCategoryButton(category.sectionCategoryId, category.sectionCategoryName);
                     answerSection.appendChild(button);

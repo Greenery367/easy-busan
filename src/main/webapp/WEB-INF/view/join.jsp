@@ -33,7 +33,7 @@
             <div class="input-other">
                 <div class="input-with-icon">
                     <span class="icon"><i class="fas fa-user"></i></span>
-                    <input type="text" id="user_name" name="user_name" placeholder="이름" required class="name-box">
+                    <input type="text" id="user_name" name="userName" placeholder="이름" required class="name-box">
                 </div>
 
                 <div class="input-with-icon">
@@ -43,10 +43,10 @@
             </div>
 
             <div class="gender-options">
-                <input type="radio" id="male" name="gender" value="male" required>
+                <input type="radio" id="male" name="gender" value="남" required>
                 <label for="male" class="gender-label">남자</label>
 
-                <input type="radio" id="female" name="gender" value="female" required>
+                <input type="radio" id="female" name="gender" value="여" required>
                 <label for="female" class="gender-label">여자</label>
             </div>
 

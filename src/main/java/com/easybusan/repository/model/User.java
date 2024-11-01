@@ -13,14 +13,14 @@ import java.text.SimpleDateFormat;
 @Data
 
 public class User {
-    private Integer user_id; // (pk) auto_increment
+    private Integer userId; // (pk) auto_increment
     private String email;
     private String password;
     private String type; // member, unknown, manager
-    private String user_name;
+    private String userName;
     private Integer age;
-    private Integer gender;
-    private String user_legion;
+    private String gender;
+    private String userLegion;
     private Timestamp createdAt;
 	private String createdAtFormat;
 

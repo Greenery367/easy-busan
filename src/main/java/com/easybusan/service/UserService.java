@@ -48,8 +48,8 @@ public class UserService {
     	dto.setPassword(hashPwd);
 		
     	result =  userRepository.createUser(dto);
-        
-        int userId = userRepository.findByEmail(dto.getEmail()).getUser_id();
+        User user = userRepository.findByEmail(dto.getEmail());
+        int userId = user.getUserId();
         dto.setUserId(userId);
         userRepository.createUserDetail(dto);
 		return result;
