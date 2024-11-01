@@ -12,7 +12,7 @@ header {
 
 .topbar {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-around;
     gap: 10px;
     position: fixed;
     top: 0;
@@ -92,6 +92,7 @@ header {
 }
 
 .topbar .bt-login {
+    margin-left: 650px;
     display: flex;
     width: 120px;
     height: 40px;
@@ -125,10 +126,25 @@ header {
     width: 24px;
     height: 24px;
 }
+.hello{
+    font-family: "Pretendard-Regular", Helvetica;
+}
 .no-underline {
     text-decoration: none;
 }
-
+.my-name img{
+    height: 30px;
+    width: auto;
+    margin-right: 5px;
+}
+.my-name span{
+    font-size: 20px;
+}
+.my-name{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 /* 반응형 디자인 적용 */
 @media (max-width: 1200px) {
     .header-nav-box {

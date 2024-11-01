@@ -19,7 +19,8 @@
 			<section class="topbar">
 				<c:choose>
 					<c:when test="${sessionUser != null}">
-						${sessionUser.userName}
+					<div class="my-name"><img src="/images/icon/icon_login_white.png" ><span>${sessionUser.userName}</span> 
+					<div class="hello">님 안녕하세요</div></div>
 						<a href="/user/logout" class="no-underline">
 							<span class="bt-logout">로그아웃</span>
 						</a>
