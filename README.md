@@ -5,9 +5,6 @@
 ![제목을-입력해주세요_-001 (3)](https://github.com/user-attachments/assets/93c138a0-5207-4152-94f2-aa9bc3cc1e40)
 
 
-
-
-* 유튜브 시연 영상 : 
 * 노션 : https://coffee-pike-9e2.notion.site/Easy-Busan-6bfb34829e274e14947c3904e15f5e27?pvs=4
 
 
@@ -18,13 +15,12 @@
 2. 구성원 및 맡은 역할
 3. 서비스 환경
 4. 사용 라이브러리 및 외부 API
-5. 사이트 맵 (유저, 관리자)
-6. 주요 기능
-7. ERD 다이어그램
+5. 주요 기능
+6. ERD 다이어그램
 &nbsp; &nbsp;&nbsp;
 ## 1️⃣ 프로젝트 개요
 ### (1) 프로젝트 주제 및 목적
-
+*부산 인구 유출을 해결하기 위한 부산 이주 컨설팅 웹사이트
 ### (2) 프로젝트 핵심 기능
 &nbsp; 
 ## 2️⃣ 구성원 및 맡은 역할
@@ -59,17 +55,30 @@
 ||시군구별 생활업종 정보|-----|-----|
 ||리버스 지오코딩(WGS84)|-----|-----|
 
-## 4️⃣ 사이트맵
-
-## 5️⃣ ERD 다이어그램
+## 4️⃣ ERD 다이어그램
 ![image](https://github.com/user-attachments/assets/6a4942c3-f8ae-4d58-830d-ca5e41111ea2)
 
 
-## 6️⃣ 주요 기능 및 화면 소개 &nbsp;
-#### (1) 메인 화면
-#### (3) 서비스 소개 페이지
-#### (4) 질문 시작 페이지
-#### (5) 질문 페이지
-#### (6) 결과 페이지
-#### (7) 마이 페이지지
-#### (8) 커뮤니티 게시판
+## 5️⃣ 주요 기능 및 화면 소개 &nbsp;
+#### (1) 회원 가입
+![회원 가입 페이지](https://github.com/user-attachments/assets/495278c1-b07c-4209-8550-ae0141e14cb5)
+
+#### (2) 로그인
+![로그인 페이지](https://github.com/user-attachments/assets/855cf953-996d-4f87-ac9d-fd077b1deb56)
+
+#### (3) 메인 화면
+![메인 페이지](https://github.com/user-attachments/assets/1c850912-fa4a-4aed-99b5-e3a6642e550b)
+![메인 페이지2](https://github.com/user-attachments/assets/568adfa9-7b09-4834-8a29-0ee48e9ba57c)
+![메인 페이지3](https://github.com/user-attachments/assets/53e021cb-9f0b-4c39-80f2-44d725940cba)
+
+#### (4) 질문 페이지
+![질문 페이지](https://github.com/user-attachments/assets/d61eea5b-f376-41be-85bc-fbf6a50f42d0)
+
+#### (5) 결과 페이지
+![테스트 결과 페이지 (2)](https://github.com/user-attachments/assets/a578bc09-4f69-4620-bba5-92f7a1a76093)
+
+#### (6) 정보 페이지
+![정보 페이지 3](https://github.com/user-attachments/assets/44df2e0a-fb7f-4a95-963b-a5342eb7d2e1)
+
+#### (7) 커뮤니티 게시판
+![Uploading 커뮤니티 페이지3.png…]()
